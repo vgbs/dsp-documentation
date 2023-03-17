@@ -5,5 +5,5 @@ description: Documentation resources for Digital Platform Solutions (DSP) of the
 
 ## Contents
 
-* [Identity Management](idm/index-idm.html)
-* [File Upload](fileupload/fileupload-api.html)
+* [Identity Management](idm/index.html)
+* [File Upload](fileupload/index.html)
