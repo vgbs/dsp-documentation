@@ -3,7 +3,7 @@ title: Identity Management Help
 description: Common IDM Flows
 ---
 
-[&larr; back to Overview](/)
+[&larr; back to Overview](/idm)
 
 ## Login
 

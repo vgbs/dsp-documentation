@@ -3,7 +3,7 @@ title: Identity Management Help
 description: Developer Documentation
 ---
 
-[&larr; back to Overview](/)
+[&larr; back to Overview](/idm)
 
 ## How To Start
 

@@ -3,7 +3,7 @@ title: Identity Management Help
 description: SSO Announcement 03.05.2022
 ---
 
-[&larr; back to Overview](/)
+[&larr; back to Overview](/idm)
 
 ## OpenID Connect Logout
 

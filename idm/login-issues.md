@@ -3,7 +3,7 @@ title: Identity Management Help
 description: Login Issues
 ---
 
-[&larr; back to Overview](/)
+[&larr; back to Overview](/idm)
 
 On issues with the usual login of customers you can follow the steps below to investigate on a reason why there is a problem with the specific login of the customer.
 

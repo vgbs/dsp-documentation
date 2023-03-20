@@ -3,7 +3,7 @@ title: Identity Management Help
 description: NSC Documentation
 ---
 
-[&larr; back to Overview](/)
+[&larr; back to Overview](/idm)
 
 ## Realm Configuration
 
