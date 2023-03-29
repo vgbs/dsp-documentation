@@ -1,6 +1,6 @@
 ---
 title: Vaillant Platform Documentation
-description: Documentation resources for Digital Platform Solutions (DSP) of the Vaillant Group
+description: Documentation resources for Digital Solutions Platform (DSP) of the Vaillant Group
 ---
 
 ## Contents
