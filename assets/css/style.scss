@@ -49,13 +49,29 @@ a {
 }
 
 a:hover,
-a:active {
+a:active,
+a:focus-visible {
   color: var(--color-green-100);
   text-decoration: none;
 }
 
 a:focus-visible {
   outline: 1px dashed var(--color-green-100);
+}
+
+a[href^="https"] {
+  border-bottom: 1px solid var(--color-green-60);
+}
+
+a[href^="https"]:hover,
+a[href^="https"]:active,
+a[href^="https"]:focus-visible {
+  border-color: var(--color-green-100);
+  border-width: 3px;
+}
+
+.site-footer a {
+  border-bottom: none;
 }
 
 li::marker {
