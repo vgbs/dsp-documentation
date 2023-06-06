@@ -59,21 +59,15 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-              example:
-                image1.jpg: NOT_INFECTED
-                image2.jpg: NOT_INFECTED
+                $ref: '#/components/schemas/FileuploadContext'
         "400":
-          description: Missing filename
+          description: File size limit exceeded / Empty body / Missing filename
         "422":
           description: Malware scan found infected files
           content:
             application/json:
               schema:
-                type: string
-              example:
-                image1.jpg: NOT_INFECTED
-                image2.jpg: INFECTED
+                $ref: '#/components/schemas/FileuploadContext'
       security:
       - code: []
   /api/files/upload:
@@ -127,33 +121,37 @@ paths:
           content:
             application/json:
               schema:
-                type: string
-              example:
-                image1.jpg: UPLOADED
-                image2.jpg: UPLOADED
+                $ref: '#/components/schemas/FileuploadContext'
         "400":
-          description: Missing filename
+          description: File size limit exceeded / Empty body / Missing filename
         "422":
           description: Malware scan found infected files
           content:
             application/json:
               schema:
-                type: string
-              example:
-                image1.jpg: UPLOADED
-                image2.jpg: INFECTED
+                $ref: '#/components/schemas/FileuploadContext'
         "500":
           description: Upload error of at least one file
           content:
             application/json:
               schema:
-                type: string
-              example:
-                image1.jpg: UPLOADED
-                image2.jpg: UPLOAD_ERROR
+                $ref: '#/components/schemas/FileuploadContext'
       security:
       - code: []
 components:
+  schemas:
+    FileuploadContext:
+      type: object
+      properties:
+        filename:
+          type: string
+        result:
+          type: string
+          enum:
+          - INFECTED
+          - NOT_INFECTED
+          - UPLOADED
+          - UPLOAD_ERROR
   securitySchemes:
     code:
       type: apiKey
