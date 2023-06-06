@@ -1,9 +1,9 @@
 openapi: 3.0.1
 info:
   title: File upload
-  description: "[WORK IN PROGRESS] Provides functionality to store one or multiple\
-    \ files. A malware check will be performed before storing files. Infection details\
-    \ are returned, if malware is detected."
+  description: "Provides functionality to store one or multiple files. A malware check\
+    \ will be performed before storing files. Infection details are returned, if malware\
+    \ is detected."
   version: "0.1"
 servers:
 - url: https://dsp-fileupload.azurewebsites.net/
