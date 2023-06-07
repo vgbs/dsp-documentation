@@ -4,7 +4,7 @@ info:
   description: "Provides functionality to store one or multiple files. A malware check\
     \ will be performed before storing files. Infection details are returned, if malware\
     \ is detected."
-  version: "0.1"
+  version: "0.2"
 servers:
 - url: https://dsp-fileupload.azurewebsites.net/
   description: Azure Function App
@@ -59,7 +59,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FileuploadContext'
+                type: array
+                items:
+                  $ref: '#/components/schemas/FileuploadContext'
         "400":
           description: File size limit exceeded / Empty body / Missing filename
         "422":
@@ -67,7 +69,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FileuploadContext'
+                type: array
+                items:
+                  $ref: '#/components/schemas/FileuploadContext'
       security:
       - code: []
   /api/files/upload:
@@ -121,7 +125,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FileuploadContext'
+                type: array
+                items:
+                  $ref: '#/components/schemas/FileuploadContext'
         "400":
           description: File size limit exceeded / Empty body / Missing filename
         "422":
@@ -129,13 +135,17 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FileuploadContext'
+                type: array
+                items:
+                  $ref: '#/components/schemas/FileuploadContext'
         "500":
           description: Upload error of at least one file
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FileuploadContext'
+                type: array
+                items:
+                  $ref: '#/components/schemas/FileuploadContext'
       security:
       - code: []
 components:
@@ -148,10 +158,10 @@ components:
         result:
           type: string
           enum:
-          - INFECTED
-          - NOT_INFECTED
           - UPLOADED
           - UPLOAD_ERROR
+          - INFECTED
+          - NOT_INFECTED
   securitySchemes:
     code:
       type: apiKey
