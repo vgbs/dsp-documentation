@@ -62,6 +62,9 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/FileuploadContext'
+              example:
+              - filename: example.jpg
+                result: INFECTED
         "400":
           description: File size limit exceeded / Empty body / Missing filename
         "422":
@@ -72,6 +75,9 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/FileuploadContext'
+              example:
+              - filename: example.jpg
+                result: NOT_INFECTED
       security:
       - code: []
   /api/files/upload:
@@ -128,6 +134,9 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/FileuploadContext'
+              example:
+              - filename: example.jpg
+                result: UPLOADED
         "400":
           description: File size limit exceeded / Empty body / Missing filename
         "422":
@@ -138,6 +147,9 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/FileuploadContext'
+              example:
+              - filename: example.jpg
+                result: INFECTED
         "500":
           description: Upload error of at least one file
           content:
@@ -146,6 +158,9 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/FileuploadContext'
+              example:
+              - filename: example.jpg
+                result: UPLOAD_ERROR
       security:
       - code: []
 components:
