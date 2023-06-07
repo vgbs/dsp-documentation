@@ -6,8 +6,11 @@ info:
     \ is detected."
   version: "0.2"
 servers:
+- url: https://dsp-fileupload-qa.azurewebsites.net/
+  description: QA - Azure Function App
+  variables: {}
 - url: https://dsp-fileupload.azurewebsites.net/
-  description: Azure Function App
+  description: Prod - Azure Function App
   variables: {}
 security:
 - code: []
