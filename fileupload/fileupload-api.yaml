@@ -188,6 +188,8 @@ components:
           type: string
         contentDocumentLinkId:
           type: string
+        recordId:
+          type: string
     ScanResult:
       type: object
   securitySchemes:
