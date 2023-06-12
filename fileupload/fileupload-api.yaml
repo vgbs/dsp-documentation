@@ -180,6 +180,16 @@ components:
           - UPLOAD_ERROR
           - INFECTED
           - NOT_INFECTED
+        scanResult:
+          $ref: '#/components/schemas/ScanResult'
+        contentVersionId:
+          type: string
+        contentDocumentId:
+          type: string
+        contentDocumentLinkId:
+          type: string
+    ScanResult:
+      type: object
   securitySchemes:
     code:
       type: apiKey
