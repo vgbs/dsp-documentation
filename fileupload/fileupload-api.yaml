@@ -68,6 +68,10 @@ paths:
               example:
               - filename: example.jpg
                 result: INFECTED
+                scanResult:
+                  foundViruses:
+                    stream:
+                    - Win.Test.EICAR_HDB-1
         "400":
           description: File size limit exceeded / Empty body / Missing filename
         "422":
@@ -140,6 +144,10 @@ paths:
               example:
               - filename: example.jpg
                 result: UPLOADED
+                contentVersionId: '...'
+                contentDocumentId: '...'
+                contentDocumentLinkId: '...'
+                recordId: '...'
         "400":
           description: File size limit exceeded / Empty body / Missing filename
         "422":
@@ -153,6 +161,10 @@ paths:
               example:
               - filename: example.jpg
                 result: INFECTED
+                scanResult:
+                  foundViruses:
+                    stream:
+                    - Win.Test.EICAR_HDB-1
         "500":
           description: Upload error of at least one file
           content:
@@ -189,6 +201,16 @@ components:
         contentDocumentLinkId:
           type: string
         recordId:
+          type: string
+        salesforceResponse:
+          $ref: '#/components/schemas/SalesforceResponse'
+    SalesforceResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        body:
           type: string
     ScanResult:
       type: object
