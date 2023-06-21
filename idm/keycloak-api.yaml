@@ -87,10 +87,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/B2CUserResponse'
-                nullable: false
+                $ref: '#/components/schemas/B2CUserResponse'
         '500':
           description: When an internal error occurs
 
@@ -423,19 +420,25 @@ components:
     B2CUserResponse:
       type: object
       properties:
-        userId:
-          type: string
-          description: IDM Id of the user
+        records:
+          type: array
           nullable: false
-        email:
-          type: string
-          nullable: false
-        brandDetailContactId:
-          type: string
-          nullable: false
-        activated:
-          type: boolean
-          description: Indicates whether the user completed the activation process
+          items:
+            type: object
+            properties:
+              userId:
+                type: string
+                description: IDM Id of the user
+                nullable: false
+              email:
+                type: string
+                nullable: false
+              brandDetailContactId:
+                type: string
+                nullable: false
+              activated:
+                type: boolean
+                description: Indicates whether the user completed the activation process
 
     B2BUserRegistrationResponse:
       type: object
@@ -496,4 +499,3 @@ components:
         message:
           type: string
           nullable: false
-
