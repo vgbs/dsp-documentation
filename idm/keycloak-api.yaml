@@ -420,7 +420,7 @@ components:
     B2CUserResponse:
       type: object
       properties:
-        records:
+        results:
           type: array
           nullable: false
           items:
