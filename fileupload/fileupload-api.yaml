@@ -64,7 +64,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/FileuploadContext'
+                  $ref: '#/components/schemas/FileUploadContext'
               example:
               - filename: example.jpg
                 result: INFECTED
@@ -81,7 +81,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/FileuploadContext'
+                  $ref: '#/components/schemas/FileUploadContext'
               example:
               - filename: example.jpg
                 result: NOT_INFECTED
@@ -140,7 +140,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/FileuploadContext'
+                  $ref: '#/components/schemas/FileUploadContext'
               example:
               - filename: example.jpg
                 result: UPLOADED
@@ -157,7 +157,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/FileuploadContext'
+                  $ref: '#/components/schemas/FileUploadContext'
               example:
               - filename: example.jpg
                 result: INFECTED
@@ -172,7 +172,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/FileuploadContext'
+                  $ref: '#/components/schemas/FileUploadContext'
               example:
               - filename: example.jpg
                 result: UPLOAD_ERROR
@@ -180,10 +180,15 @@ paths:
       - code: []
 components:
   schemas:
-    FileuploadContext:
+    FileUploadContext:
       type: object
       properties:
         filename:
+          type: string
+        fileSizeInBytes:
+          type: integer
+          format: int32
+        contentType:
           type: string
         result:
           type: string
@@ -192,8 +197,15 @@ components:
           - UPLOAD_ERROR
           - INFECTED
           - NOT_INFECTED
-        scanResult:
-          $ref: '#/components/schemas/ScanResult'
+        uploadTime:
+          type: integer
+          format: int64
+        foundViruses:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
         contentVersionId:
           type: string
         contentDocumentId:
@@ -212,8 +224,6 @@ components:
           format: int32
         body:
           type: string
-    ScanResult:
-      type: object
   securitySchemes:
     code:
       type: apiKey
