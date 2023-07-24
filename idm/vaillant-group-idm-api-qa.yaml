@@ -4,11 +4,11 @@ info:
   description: API provided by the Vaillant Group Identity Management
   version: "4.0"
 servers:
-- url: https://identity-qa.vaillant-group.com/api
-  description: QA
-  variables: {}
 - url: https://identity.vaillant-group.com/api
   description: Prod
+  variables: {}
+- url: https://identity-qa.vaillant-group.com/api
+  description: QA
   variables: {}
 security:
 - basicAuth: []
