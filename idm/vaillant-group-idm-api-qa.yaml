@@ -13,6 +13,33 @@ servers:
 security:
 - basicAuth: []
 paths:
+  /api-developer/clients/{client_id}:
+    delete:
+      tags:
+      - API-Developer
+      summary: Delete client for the Api-Developer realm
+      operationId: deleteClient
+      parameters:
+      - name: client_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          description: Client Successfully Deleted
+        "400":
+          description: Client not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Unexpected internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
   /api-developer/clients/{client_id}/change-secret:
     put:
       tags:
@@ -371,11 +398,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    ClientCredentialsResponse:
-      type: object
-      properties:
-        clientSecret:
-          type: string
     ErrorResponse:
       type: object
       properties:
@@ -387,6 +409,11 @@ components:
         error:
           type: string
         message:
+          type: string
+    ClientCredentialsResponse:
+      type: object
+      properties:
+        clientSecret:
           type: string
     ClientRegistrationRequest:
       required:
