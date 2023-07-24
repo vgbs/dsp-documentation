@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta
-    name="description"
-    content="IDM API Documentation"
+          name="description"
+          content="IDM API Documentation (Beta)"
   />
-  <title>IDM API Documentation</title>
-  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@4.5.0/swagger-ui.css" />
+  <title>IDM API Documentation (Beta)</title>
+  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@4.5.0/swagger-ui.css"/>
 </head>
 <body>
 <div id="swagger-ui"></div>
 <script src="https://unpkg.com/swagger-ui-dist@4.5.0/swagger-ui-bundle.js" crossorigin></script>
+<script src="https://unpkg.com/swagger-ui-dist@4.5.0/swagger-ui-standalone-preset.js" crossorigin></script>
 <script>
-  window.onload = () => {
+  window.onload = function () {
     window.ui = SwaggerUIBundle({
-      url: './keycloak-api.yaml',
+      urls: [
+        {
+          url: "./vaillant-group-idm-api-prod.yaml",
+          name: "PROD"
+        },
+        {
+          url: "./vaillant-group-idm-api-qa.yaml",
+          name: "QA"
+        }
+      ],
       dom_id: '#swagger-ui',
+      deepLinking: true,
+      presets: [
+        SwaggerUIBundle.presets.apis,
+        SwaggerUIStandalonePreset
+      ],
+      plugins: [
+        SwaggerUIBundle.plugins.DownloadUrl
+      ],
+      layout: "StandaloneLayout"
     });
   };
 </script>
