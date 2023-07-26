@@ -40,6 +40,43 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+    patch:
+      tags:
+      - API-Developer
+      summary: De-/activate a client for the API Developer Portal
+      operationId: changeApiDeveloperClientStatus
+      parameters:
+      - name: client_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/ApiDeveloperClientChangeStatusRequest'
+      responses:
+        "200":
+          description: Client Successfully Updated
+        "400":
+          description: Client not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "422":
+          description: Error during validation of the request object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorMessage'
+        "500":
+          description: Unexpected internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
   /api-developer/clients/{client_id}/change-secret:
     put:
       tags:
@@ -133,12 +170,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApiDeveloperUserRegistrationResponse'
-        "409":
-          description: User is already activated
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
         "404":
           description: User not found
         "422":
@@ -410,6 +441,20 @@ components:
           type: string
         message:
           type: string
+    ValidationErrorMessage:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+    ApiDeveloperClientChangeStatusRequest:
+      required:
+      - enabled
+      type: object
+      properties:
+        enabled:
+          type: boolean
     ClientCredentialsResponse:
       type: object
       properties:
@@ -434,13 +479,6 @@ components:
         userId:
           type: string
           description: IDM Id of the user
-    ValidationErrorMessage:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: string
     ApiDeveloperUserChangeStatusRequest:
       required:
       - enabled
