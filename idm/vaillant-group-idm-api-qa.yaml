@@ -147,8 +147,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-  /api-developer/users/{user_id}:
-    put:
+  /api-developer/users/{user_id}/change-status:
+    post:
       tags:
       - API-Developer
       summary: De-/activate a user for the API Developer Portal
@@ -185,6 +185,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+  /api-developer/users/{user_id}:
     delete:
       tags:
       - API-Developer
