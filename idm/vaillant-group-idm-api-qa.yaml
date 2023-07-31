@@ -13,6 +13,44 @@ servers:
 security:
 - basicAuth: []
 paths:
+  /api-developer/clients/{client_id}/change-status:
+    post:
+      tags:
+      - API-Developer
+      summary: De-/activate a client for the API Developer Portal
+      operationId: changeApiDeveloperClientStatus
+      parameters:
+      - name: client_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiDeveloperClientChangeStatusRequest'
+      responses:
+        "200":
+          description: Client Successfully Updated
+        "400":
+          description: Client not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "422":
+          description: Error during validation of the request object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorMessage'
+        "500":
+          description: Unexpected internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
   /api-developer/clients/{client_id}:
     delete:
       tags:
@@ -40,45 +78,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-    patch:
-      tags:
-      - API-Developer
-      summary: De-/activate a client for the API Developer Portal
-      operationId: changeApiDeveloperClientStatus
-      parameters:
-      - name: client_id
-        in: path
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          '*/*':
-            schema:
-              $ref: '#/components/schemas/ApiDeveloperClientChangeStatusRequest'
-      responses:
-        "200":
-          description: Client Successfully Updated
-        "400":
-          description: Client not found.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
-        "422":
-          description: Error during validation of the request object
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationErrorMessage'
-        "500":
-          description: Unexpected internal error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorResponse'
   /api-developer/clients/{client_id}/change-secret:
-    put:
+    post:
       tags:
       - API-Developer
       summary: Refresh client secret for the Api-Developer realm
@@ -178,6 +179,32 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ValidationErrorMessage'
+        "500":
+          description: Unexpected internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    delete:
+      tags:
+      - API-Developer
+      summary: Delete user for the Api-Developer realm
+      operationId: deleteUser
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          description: User Successfully Deleted
+        "404":
+          description: User not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
         "500":
           description: Unexpected internal error
           content:
