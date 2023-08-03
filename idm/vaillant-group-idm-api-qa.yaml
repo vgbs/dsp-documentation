@@ -501,6 +501,26 @@ components:
           type: string
           description: Email address to assign to the Service Account User associated
             with the client. Must be unique.
+        defaultClientScopes:
+          type: array
+          description: "List of default client scopes. Optional attribute. When none\
+            \ of the ClientScopes lists is present in the request, all of the defined\
+            \ clients scopes are associated with the client."
+          items:
+            type: string
+            description: "List of default client scopes. Optional attribute. When\
+              \ none of the ClientScopes lists is present in the request, all of the\
+              \ defined clients scopes are associated with the client."
+        optionalClientScopes:
+          type: array
+          description: "List of default client scopes. Optional attribute. When none\
+            \ of the ClientScopes lists is present in the request, all of the defined\
+            \ clients scopes are associated with the client."
+          items:
+            type: string
+            description: "List of default client scopes. Optional attribute. When\
+              \ none of the ClientScopes lists is present in the request, all of the\
+              \ defined clients scopes are associated with the client."
     ApiDeveloperUserRegistrationResponse:
       type: object
       properties:
