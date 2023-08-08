@@ -5,6 +5,9 @@ info:
     \ will be performed before storing files. Infection details are returned, if malware\
     \ is detected."
   version: "0.2"
+externalDocs:
+  description: Fileupload Monitoring Dashboard
+  url: https://dashboards-fileupload.dsp.vaillant-group.cloud/
 servers:
 - url: https://dsp-fileupload-qa.azurewebsites.net/
   description: QA - Azure Function App
@@ -22,7 +25,7 @@ paths:
       tags:
       - File upload
       summary: Scan the uploaded files for malware
-      operationId: analyseFileDocumentation
+      operationId: analyseFile
       parameters:
       - name: code
         in: query
@@ -67,11 +70,7 @@ paths:
                   $ref: '#/components/schemas/FileUploadContext'
               example:
               - filename: example.jpg
-                result: INFECTED
-                scanResult:
-                  foundViruses:
-                    stream:
-                    - Win.Test.EICAR_HDB-1
+                result: NOT_INFECTED
         "400":
           description: File size limit exceeded / Empty body / Missing filename
         "422":
@@ -84,7 +83,11 @@ paths:
                   $ref: '#/components/schemas/FileUploadContext'
               example:
               - filename: example.jpg
-                result: NOT_INFECTED
+                result: INFECTED
+                scanResult:
+                  foundViruses:
+                    stream:
+                    - Win.Test.EICAR_HDB-1
       security:
       - code: []
   /api/files/upload:
@@ -92,7 +95,7 @@ paths:
       tags:
       - File upload
       summary: Scan the uploaded files for malware and store in Salesforce
-      operationId: uploadFileDocumentation
+      operationId: upload
       parameters:
       - name: code
         in: query
@@ -197,9 +200,6 @@ components:
           - UPLOAD_ERROR
           - INFECTED
           - NOT_INFECTED
-        uploadTime:
-          type: integer
-          format: int64
         foundViruses:
           type: object
           additionalProperties:
@@ -224,6 +224,18 @@ components:
           format: int32
         body:
           type: string
+    HttpResponseMessage:
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/HttpStatusType'
+        statusCode:
+          type: integer
+          format: int32
+        body:
+          type: object
+    HttpStatusType:
+      type: object
   securitySchemes:
     code:
       type: apiKey
