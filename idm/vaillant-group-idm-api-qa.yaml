@@ -186,6 +186,32 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
   /api-developer/users/{user_id}:
+    get:
+      tags:
+      - API-Developer
+      summary: Get user for the Api-Developer realm
+      operationId: getUser
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: User Successfully Fetched
+        "404":
+          description: User not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Unexpected internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
     delete:
       tags:
       - API-Developer
@@ -519,6 +545,26 @@ components:
       type: object
       properties:
         enabled:
+          type: boolean
+    ApiDeveloperUserResponse:
+      type: object
+      properties:
+        userId:
+          type: string
+          description: IDM Id of the user
+        username:
+          type: string
+        email:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+        company:
+          type: string
+        enabled:
+          type: boolean
+        emailVerified:
           type: boolean
     ApiDeveloperUserRegistrationRequest:
       required:
