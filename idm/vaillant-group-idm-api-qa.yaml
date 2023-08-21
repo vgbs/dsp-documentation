@@ -66,6 +66,10 @@ paths:
       responses:
         "200":
           description: Client Successfully Fetched
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDeveloperClientResponse'
         "400":
           description: Client not found.
           content:
@@ -226,6 +230,10 @@ paths:
       responses:
         "200":
           description: User Successfully Fetched
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDeveloperUserResponse'
         "404":
           description: User not found.
           content:
