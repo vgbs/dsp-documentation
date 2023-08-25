@@ -52,6 +52,36 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
   /api-developer/clients/{client_id}:
+    get:
+      tags:
+      - API-Developer
+      summary: Get client for the Api-Developer realm
+      operationId: getClient
+      parameters:
+      - name: client_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Client Successfully Fetched
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDeveloperClientResponse'
+        "400":
+          description: Client not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Unexpected internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
     delete:
       tags:
       - API-Developer
@@ -186,6 +216,36 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
   /api-developer/users/{user_id}:
+    get:
+      tags:
+      - API-Developer
+      summary: Get user for the Api-Developer realm
+      operationId: getUser
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: User Successfully Fetched
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDeveloperUserResponse'
+        "404":
+          description: User not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Unexpected internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
     delete:
       tags:
       - API-Developer
@@ -483,6 +543,19 @@ components:
       properties:
         enabled:
           type: boolean
+    ApiDeveloperClientResponse:
+      type: object
+      properties:
+        clientId:
+          type: string
+        email:
+          type: string
+        realmRoles:
+          type: array
+          items:
+            type: string
+        enabled:
+          type: boolean
     ClientCredentialsResponse:
       type: object
       properties:
@@ -501,26 +574,12 @@ components:
           type: string
           description: Email address to assign to the Service Account User associated
             with the client. Must be unique.
-        defaultClientScopes:
+        realmRoles:
           type: array
-          description: "List of default client scopes. Optional attribute. When none\
-            \ of the ClientScopes lists is present in the request, all of the defined\
-            \ clients scopes are associated with the client."
+          description: List of realm roles. Optional attribute.
           items:
             type: string
-            description: "List of default client scopes. Optional attribute. When\
-              \ none of the ClientScopes lists is present in the request, all of the\
-              \ defined clients scopes are associated with the client."
-        optionalClientScopes:
-          type: array
-          description: "List of default client scopes. Optional attribute. When none\
-            \ of the ClientScopes lists is present in the request, all of the defined\
-            \ clients scopes are associated with the client."
-          items:
-            type: string
-            description: "List of default client scopes. Optional attribute. When\
-              \ none of the ClientScopes lists is present in the request, all of the\
-              \ defined clients scopes are associated with the client."
+            description: List of realm roles. Optional attribute.
     ApiDeveloperUserRegistrationResponse:
       type: object
       properties:
@@ -533,6 +592,26 @@ components:
       type: object
       properties:
         enabled:
+          type: boolean
+    ApiDeveloperUserResponse:
+      type: object
+      properties:
+        userId:
+          type: string
+          description: IDM Id of the user
+        username:
+          type: string
+        email:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+        company:
+          type: string
+        enabled:
+          type: boolean
+        emailVerified:
           type: boolean
     ApiDeveloperUserRegistrationRequest:
       required:
