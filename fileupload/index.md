@@ -1,11 +1,13 @@
 ---
 title: Vaillant Group DSP Fileupload Help
-description: File Upload Dashboard
+description: 
 ---
+
+[&larr; back to Overview](/)
 
 ## Contents
 
 * [Getting Started](fileupload-readme.md)
 * [API Documentation](fileupload-documentation.html)
-* [Upload Dashboard](fileupload-dashboard.md)
+* [Dashboard for upload monitoring](fileupload-dashboard.md)
 
