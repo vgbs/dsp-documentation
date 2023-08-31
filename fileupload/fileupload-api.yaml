@@ -227,13 +227,13 @@ components:
     HttpResponseMessage:
       type: object
       properties:
-        status:
-          $ref: '#/components/schemas/HttpStatusType'
         statusCode:
           type: integer
           format: int32
         body:
           type: object
+        status:
+          $ref: '#/components/schemas/HttpStatusType'
     HttpStatusType:
       type: object
   securitySchemes:
