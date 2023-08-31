@@ -14,5 +14,5 @@ about.
 
 ## Get Access To The Dashboard
 
-If you like to use the fileupload or need access to the dashbaord, please create a request at
-the [DSC Service Desk](https://service.dsp.vaillant-group.com) 
+If you like to use the fileupload or need help accessing to the dashbaord, please create a request
+here: [DSC Service Desk](https://service.dsp.vaillant-group.com) 

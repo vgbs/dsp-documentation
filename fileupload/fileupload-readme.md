@@ -22,7 +22,7 @@ error message.
 
 The DSP fileupload can be used by any team or agency developing a client, that uses Vaillant Group related services with
 access to our Salesforce system.
-Refer to our [service desk](https://service.dsp.vaillant-group.com), if you need to use fileupload functionality in your
+Refer to the [service desk](https://service.dsp.vaillant-group.com), if you need to use fileupload functionality in your
 application or you want to switch from an existing solution to our API.
 
 ## Authentication
