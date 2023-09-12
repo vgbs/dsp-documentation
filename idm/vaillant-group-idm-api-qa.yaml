@@ -70,7 +70,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApiDeveloperClientResponse'
-        "400":
+        "404":
           description: Client not found.
           content:
             application/json:
@@ -96,7 +96,7 @@ paths:
       responses:
         "204":
           description: Client Successfully Deleted
-        "400":
+        "404":
           description: Client not found.
           content:
             application/json:
