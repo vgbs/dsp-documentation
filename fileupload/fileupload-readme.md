@@ -58,7 +58,6 @@ The following Salesforce Objects are allowed:
 * Opportunity
 * Contact Brand Detail
 * Account Brand Detail
-* SCOrder
 
 ## Example Code Snippet (Java)
 

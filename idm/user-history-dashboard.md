@@ -14,4 +14,4 @@ For login to the dashboard you can simply use your AD password (Windows password
 
 ## Get Access To The Dashboard
 
-If you like to have access to the dashbaord, please write a short e-mail to identity@vaillant-group.com or write a message into our Slack channel #idm-support.
+If you like to have access to the dashbaord, please create a ticket in our [DSC service desk](https://service.dsp.vaillant-group.com).

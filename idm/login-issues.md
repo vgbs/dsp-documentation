@@ -21,10 +21,10 @@ Elastic is our logging system. Here you can easily search for the support ID and
 
 [Elastic IdM Log](https://logs.idm.vaillant-group.com/)
 
-![Search for support ID in Elastic.](/idm/elastic-support.png.png "Support")
+![Search for support ID in Elastic.](/idm/elastic-support.png "Support")
 
 You find possible reasons for the failed login in the message column of the log entry.
 
 ## Get Access To Elastic
 
-If you like to have an Elastic user, please write a short e-mail to identity@vaillant-group.com or write a message into our Slack channel #idm-support.
+If you like to have an Elastic user, please enter your request in our [DSC service desk](https://service.dsp.vaillant-group.com).

@@ -145,7 +145,7 @@ enpoint only provides information that is present in salesforce. If it is
 missing, the key is omitted.
 
 In case you need additional information in the userinfo response, feel free to
-contact Daniel via Slack in our [Support Channel](https://vaillantgroup1874.slack.com/archives/C0386NABKTP).
+contact the team via [DSC service desk](https://service.dsp.vaillant-group.com).
 
 These information are contained in the response of this endpoint:
 

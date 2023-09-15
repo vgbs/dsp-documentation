@@ -20,7 +20,7 @@ The following configurations can be made for a realm:
 * Sender name of outgoing e-mails (e-mail address identity@vaillant-group.com can not be changed)
 * Reply-to address of outgoing e-mails
 
-If you like to change configurations for your realm, please write an e-mail to identity@vaillant-group.com or leave a post into our Slack channel #idm-support
+If you like to change configurations for your realm, please use our [DSC service desk](https://service.dsp.vaillant-group.com) and provide all relevant information.
 
 Translations are language specific and not country specific. German is shared accross Germany, Switherland and Austria. See more in chapter Translations.
 
@@ -28,7 +28,7 @@ Logo and design is brand specific and usually set by central marketing.
 
 ## Translations
 
-All texts on the shown frontends and in the outgoing e-mails can be adapted by yourself. To get access to the translation tool, please write to identity@vaillant-group.com or leave a message in our Slack channel #idm-support.
+All texts on the shown frontends and in the outgoing e-mails can be adapted by yourself. To get access to the translation tool, please request it via [DSC service desk](https://service.dsp.vaillant-group.com).
 
 Please be aware that translations are always valid for a complete language and might also affect other realms and countries.
 
@@ -51,4 +51,4 @@ In both cases the user will get the activation e-mail after.
 
 ## User Support
 
-As the identity management is a complex system also many different types of errors can occur. Most of them are problems with the login, the activation or the password reset. For those cases you can directly look up the e-mail address or a Salesforce ID in our customer history log. For access please write to identity@vaillant-group.com or leave a message in our Slack channel #idm-support
+As the identity management is a complex system also many different types of errors can occur. Most of them are problems with the login, the activation or the password reset. For those cases you can directly look up the e-mail address or a Salesforce ID in our customer history log. For access please create an issue in [DSC service desk](https://service.dsp.vaillant-group.com).
