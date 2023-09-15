@@ -29,7 +29,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ApiDeveloperClientChangeStatusRequest'
+              $ref: '#/components/schemas/ApiDeveloperChangeStatusRequest'
       responses:
         "200":
           description: Client Successfully Updated
@@ -70,7 +70,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApiDeveloperClientResponse'
-        "400":
+        "404":
           description: Client not found.
           content:
             application/json:
@@ -96,7 +96,7 @@ paths:
       responses:
         "204":
           description: Client Successfully Deleted
-        "400":
+        "404":
           description: Client not found.
           content:
             application/json:
@@ -126,7 +126,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientCredentialsResponse'
+                $ref: '#/components/schemas/ApiDeveloperClientCredentialsResponse'
         "400":
           description: Client not found.
           content:
@@ -149,7 +149,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ClientRegistrationRequest'
+              $ref: '#/components/schemas/ApiDeveloperClientRegistrationRequest'
         required: true
       responses:
         "200":
@@ -157,7 +157,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ClientCredentialsResponse'
+                $ref: '#/components/schemas/ApiDeveloperClientCredentialsResponse'
         "400":
           description: Invalid email address.
           content:
@@ -193,7 +193,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ApiDeveloperUserChangeStatusRequest'
+              $ref: '#/components/schemas/ApiDeveloperChangeStatusRequest'
       responses:
         "200":
           description: OK
@@ -536,7 +536,7 @@ components:
           type: array
           items:
             type: string
-    ApiDeveloperClientChangeStatusRequest:
+    ApiDeveloperChangeStatusRequest:
       required:
       - enabled
       type: object
@@ -556,12 +556,12 @@ components:
             type: string
         enabled:
           type: boolean
-    ClientCredentialsResponse:
+    ApiDeveloperClientCredentialsResponse:
       type: object
       properties:
         clientSecret:
           type: string
-    ClientRegistrationRequest:
+    ApiDeveloperClientRegistrationRequest:
       required:
       - clientId
       - email
@@ -586,13 +586,6 @@ components:
         userId:
           type: string
           description: IDM Id of the user
-    ApiDeveloperUserChangeStatusRequest:
-      required:
-      - enabled
-      type: object
-      properties:
-        enabled:
-          type: boolean
     ApiDeveloperUserResponse:
       type: object
       properties:
