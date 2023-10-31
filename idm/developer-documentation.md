@@ -73,24 +73,25 @@ the [Keycloak Javascript adapter](https://www.keycloak.org/docs/latest/securing_
 Feel free to use the configuration below as a starting point for you configuration:
 
 ```javascript
-var keycloak = Keycloak({
+const keycloak = new Keycloak({
     url: 'https://identity-qa.vaillant-group.com/auth',
     realm: 'your-realm',
     clientId: 'your-qa-client-id',
     "enable-pkce": true
 });
 
-keycloak.init({onLoad: 'login-required', "pkceMethod": "S256"}).success(function (authenticated) {
-    if (!authenticated) {
-        alert('not authenticated');
-    } else {
-        console.log(keycloak.idTokenParsed);
-        document.getElementById('name').innerHTML = keycloak.idTokenParsed.name;
-    }
-}).error(function (e) {
-    console.log(e)
-    alert('failed to initialize');
-});
+keycloak.init({onLoad: 'login-required', "pkceMethod": "S256"})
+    .then(function (authenticated) {
+        if (!authenticated) {
+            alert('not authenticated');
+        } else {
+            console.log(keycloak.idTokenParsed);
+            document.getElementById('name').innerHTML = keycloak.idTokenParsed.name;
+        }
+    }).error(function (e) {
+        console.log(e)
+        alert('failed to initialize');
+    });
 ```
 
 ## Available Information in the Token and the Userinfo
