@@ -88,7 +88,7 @@ keycloak.init({onLoad: 'login-required', "pkceMethod": "S256"})
             console.log(keycloak.idTokenParsed);
             document.getElementById('name').innerHTML = keycloak.idTokenParsed.name;
         }
-    }).error(function (e) {
+    }).catch(function (e) {
         console.log(e)
         alert('failed to initialize');
     });
