@@ -6,10 +6,8 @@ info:
 servers:
 - url: https://identity.vaillant-group.com/api
   description: Prod
-  variables: {}
 - url: https://identity-qa.vaillant-group.com/api
   description: QA
-  variables: {}
 security:
 - basicAuth: []
 paths:
