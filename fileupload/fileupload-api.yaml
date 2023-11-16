@@ -230,10 +230,10 @@ components:
         statusCode:
           type: integer
           format: int32
-        status:
-          $ref: '#/components/schemas/HttpStatusType'
         body:
           type: object
+        status:
+          $ref: '#/components/schemas/HttpStatusType'
     HttpStatusType:
       type: object
   securitySchemes:
