@@ -137,6 +137,35 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      deprecated: true
+  /api-developer/v2/clients/{client_id}/change-secret:
+    post:
+      tags:
+      - API-Developer
+      summary: "Refresh client secret for the Api-Developer realm, sends credentials\
+        \ via email"
+      operationId: refreshClientSecret_1
+      parameters:
+      - name: client_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "204":
+          description: OK
+        "400":
+          description: Client not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Unexpected internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
   /api-developer/clients:
     post:
       tags:
@@ -156,6 +185,46 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ApiDeveloperClientCredentialsResponse'
+        "400":
+          description: Invalid email address.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "409":
+          description: Client with same clientId has already been registered or Service
+            Account User with same email already exists.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Unexpected internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      deprecated: true
+  /api-developer/v2/clients:
+    post:
+      tags:
+      - API-Developer
+      summary: "Registers a client for the Api-Developer realm, sends credentials\
+        \ via email"
+      operationId: registerApiDeveloperClient_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiDeveloperClientRegistrationRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDeveloperClientResponse'
         "400":
           description: Invalid email address.
           content:
