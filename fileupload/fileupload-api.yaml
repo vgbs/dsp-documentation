@@ -17,6 +17,7 @@ servers:
   variables: {}
 security:
 - code: []
+- oAuth2: []
 tags:
 - name: File upload
 paths:
@@ -30,7 +31,6 @@ paths:
       - name: code
         in: query
         description: API key
-        required: true
         schema:
           type: string
       requestBody:
@@ -99,7 +99,6 @@ paths:
       - name: code
         in: query
         description: API key
-        required: true
         schema:
           type: string
       - name: recordID
@@ -239,3 +238,8 @@ components:
       type: apiKey
       name: code
       in: query
+    oAuth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: /auth/realms/fileupload/protocol/openid-connect/token
