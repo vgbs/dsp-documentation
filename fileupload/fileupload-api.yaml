@@ -242,4 +242,4 @@ components:
       type: oauth2
       flows:
         clientCredentials:
-          tokenUrl: /auth/realms/fileupload/protocol/openid-connect/token
+          tokenUrl: https://identity-qa.dsp.vaillant-group.com/auth/realms/fileupload/protocol/openid-connect/token
