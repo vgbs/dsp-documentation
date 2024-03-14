@@ -3,7 +3,7 @@ title: Identity Management Help
 description: User History Dashboard
 ---
 
-[&larr; back to Overview](/idm)
+[&larr; back to Overview](/)
 
 ## What is password pusher and for what does it stand for?
 
