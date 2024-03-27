@@ -10,6 +10,8 @@ description: Overview
 * [API Documentation](api-documentation.html)
 * [NSC Documentation](nsc-documentation.md)
 * [User History Dashboard](user-history-dashboard.md)
+* [Security Admin Panel](security/security-panel-documentation.md)
+
 
 ## Announcements
 
