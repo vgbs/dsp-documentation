@@ -1,6 +1,6 @@
 ---
 title: Identity Management Help
-description: NSC Documentation
+description: Security Admin Panel Documentation
 ---
 
 [&larr; back to Overview](../index.md)
