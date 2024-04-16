@@ -12,8 +12,12 @@ You can create a unique, one-time URL that will expire after a certain amount of
 or after it has been accessed a certain number of times via Password Pusher.
 Once expired passwords, are unequivocally deleted.
 
-Application is as a better alternative to emailing passwords.
-It avoids having passwords exist in email archives in perpetuity. It does not exist as a end-all security solution.
+Application is a better alternative to emailing passwords.
+It avoids having passwords exist in email archives in perpetuity. It does not exist as an end-all security solution.
+
+By default, the  Password Pusher is set to expire and delete secret link after 1 day and 1 view.
+A 1-click retrieval step is also enabled to avoid chat systems and URL scanners from eating up views.
+You can always change those setting if you need, however it is advised to use the default settings in most cases.
 
 
 #### Vaillant Group Password Pusher page:
