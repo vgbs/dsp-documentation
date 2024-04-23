@@ -19,13 +19,10 @@ To temporarily block the user, so that the login is possible only after resettin
 2. Wait for the search results to be displayed - the list would be shortly filled with per-realm results for the email provided:
 
     ![Search results at the Security Admin Panel.](/idm/security/user-search-results.png "User Search Results")
-3. Provide the reason for the blockage, or any other information sufficient to make the blockage transparent to all parties involved:
+3. Click the "Block" button, and then provide the reason for the blockage, or any other information sufficient to make the blockage transparent to all parties involved:
 
-    ![Provide the reason for the blockage.](/idm/security/modifying-blockage-reason.png "Modifying Blockage Reason")
-4. If needed, modify the number of days, for which the reset password email link would be valid:
-
-    ![Optionally, modify the reset password email link expiration time.](/idm/security/modifying-expiration-time.png "Modifying Expiration Time")
-5. Click the "Block" button - that's it! :)
+   ![Provide the reason for the blockage.](/idm/security/modifying-blockage-reason.png "Modifying Blockage Reason")
+4. Click the "Block User" button - that's it! :)
 
 The Temporary User Blockage logic works as follows:
 * The current user credentials are shuffled, in other words the user password is set to a random value,
@@ -37,10 +34,6 @@ The Temporary User Blockage logic works as follows:
 As for today, we're using a default Keycloak generated email message, which looks like this:
 
 ![Security Admin Reset Password Email Example.](/idm/security/reset-password-email.png "Reset Password Email")
-
-## Permanent User Blockage
-
-This feature is not yet available.
 
 ## Get Access To The Security Admin Panel
 
