@@ -7,6 +7,7 @@ description: Overview
 
 * [Getting Started](developer-documentation.md)
 * [Common IDM Flows](common-idm-flows.md)
+* [User Import from Legacy Systems (B2C Only)](user-import.md)
 * [API Documentation](api-documentation.html)
 * [NSC Documentation](nsc-documentation.md)
 * [User History Dashboard](user-history-dashboard.md)
