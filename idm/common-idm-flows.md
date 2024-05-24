@@ -42,6 +42,8 @@ the user isn't logged in, when visiting the change-email url, the login screen s
 
 Since changing the email is a sensitive operation, which might easily be abused, the operation has to be confirmed witht he user's password.
 
+The updated user email is written back to Salesforce; the Person Account email is updated.
+
 ```
 https://identity-qa.vaillant-group.com/auth/realms/<REALM_ID>/email/change?client_id=<CLIENT_ID>&redirect_uri=<REDIRECT_URI>
 ```
