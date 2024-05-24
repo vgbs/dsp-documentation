@@ -197,7 +197,8 @@ These information are contained in the response of this endpoint:
     },
     "name": "First-Last GmbH",
     "customerNumber": "11223",
-    "taxNumber": "1337"
+    "taxNumber": "1337",
+    "vatCode": "1337"
   },
   "title": "Dr",
   "salutation": "Herr",
