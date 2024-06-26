@@ -1,6 +1,6 @@
 ---
 title: Vaillant Group DSP Transactional Email Service Help
-description: Transactional Email Service Getting Started
+description: Getting Started
 ---
 
 [&larr; back to Overview](/email)
