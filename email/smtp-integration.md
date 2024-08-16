@@ -23,7 +23,7 @@ Prod (Brevo):
 Server: smtp-relay.prod.dsp.vaillant-group.cloud
 Port: 587 (STARTTLS)
 ```
-* Mailpit UI can be accessed from `https://mailpit.qa.dsp.vaillant-group.cloud/` at the moment, but it will be protected by Vaillant SSO in the near future.
+* Mailpit UI can be accessed from [https://mailpit.qa.dsp.vaillant-group.cloud/](https://mailpit.qa.dsp.vaillant-group.cloud/) (Internal) and [https://mailpit-qa.dsp.vaillant-group.com/](https://mailpit-qa.dsp.vaillant-group.com/) (External).
 
 
 ### Important 
