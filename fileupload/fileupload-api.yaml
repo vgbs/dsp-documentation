@@ -260,11 +260,11 @@ components:
           type: object
           additionalProperties:
             type: string
-        body:
-          type: string
         uri:
           type: string
           format: uri
+        body:
+          type: string
         httpMethod:
           type: string
           enum:
@@ -373,14 +373,14 @@ components:
                   type: object
                 baseBundleName:
                   type: string
-        functionName:
-          type: string
         traceContext:
           $ref: '#/components/schemas/TraceContext'
         invocationId:
           type: string
         retryContext:
           $ref: '#/components/schemas/RetryContext'
+        functionName:
+          type: string
     RetryContext:
       type: object
       properties:
