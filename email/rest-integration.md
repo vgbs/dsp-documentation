@@ -14,8 +14,14 @@ Integration with Team Trixie's REST Proxy is relatively straightforward, though 
 * Consult the [API Documentation](api-documentation.html) on the usage of the API
 * Afterward you can access the E-Mail Proxy API using:
 
-QA: [https://email-proxy.qa.dsp.vaillant-group.cloud)](https://email-proxy.qa.dsp.vaillant-group.cloud)
-Prod: [https://email-proxy.prod.dsp.vaillant-group.cloud)](https://email-proxy.prod.dsp.vaillant-group.cloud)
+QA:
+```
+Base URL: https://email-proxy.qa.dsp.vaillant-group.cloud/api
+```
+Prod:
+```
+Base URL: https://email-proxy.prod.dsp.vaillant-group.cloud/api
+```
 
 * Mailpit UI can be accessed from [https://mailpit.qa.dsp.vaillant-group.cloud/](https://mailpit.qa.dsp.vaillant-group.cloud/) (Internal) and [https://mailpit-qa.dsp.vaillant-group.com/](https://mailpit-qa.dsp.vaillant-group.com/) (External).
 
