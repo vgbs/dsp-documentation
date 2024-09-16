@@ -30,5 +30,4 @@ We are currently providing you the option to have some recipient emails whitelis
 If you need such feature for your testing purposes, then please create a ticket in DSP helpdesk and we will configure that for you.
 
 ### Important 
-* The servers are only available from networks, which are peered to dsp-network at the moment.
 * It is now possible right to send out emails from QA to real inboxes - whitelisted emails only.
