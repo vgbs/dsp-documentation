@@ -9,3 +9,4 @@ description: Documentation resources for Digital Solutions Platform (DSP) of the
 * [File Upload](fileupload/index.html)
 * [Password Pusher](pwpush/index.html)
 * [Transactional Email Service](email/index.html)
+* [Template Migrator tool](templatemigrator/index.html)
