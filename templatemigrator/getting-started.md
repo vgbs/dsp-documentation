@@ -16,6 +16,7 @@ description: Getting Started Guide
 2. If you are using macOS or linux, specify whether you need amd64 or arm64.
 3. You'll receive a binary file for the OS of your choice.
 4. You can either specify the input_dir and output_dir (input/output directories) via command-line arguments, or rely on the defaults provided in config.json.
+5. You also need to provide your config.json in command-line arguments. You can find an example below.
 
 ##### Linux
 Ensure the binary file has execute permissions. You can grant them with:
@@ -24,12 +25,12 @@ Ensure the binary file has execute permissions. You can grant them with:
 
 Then run the script from the terminal:
 
-```./template-migrator-linux-amd64 --input_dir /path/to/input --output_dir /path/to/output```
+```./template-migrator-linux-amd64 --input_dir /path/to/input --output_dir /path/to/output --config /path/to/config.json```
 
 ##### Windows
 No special actions are needed. Simply run the .exe file. You may do that either with double-click or via terminal:
 
-```template-migrator-windows-amd64.exe --input_dir C:\path\to\input --output_dir C:\path\to\output```
+```template-migrator-windows-amd64.exe --input_dir C:\path\to\input --output_dir C:\path\to\output --config /path/to/config.json```
 
 ##### MacOS
 If encountering access not permitted error, macOS users may need to bypass Gatekeeper security features by running the following command in terminal:
@@ -38,12 +39,12 @@ If encountering access not permitted error, macOS users may need to bypass Gatek
 
 Then run the script from the terminal:
 
-```./template-migrator-macos-amd64 --input_dir /path/to/input --output_dir /path/to/output```
+```./template-migrator-macos-amd64 --input_dir /path/to/input --output_dir /path/to/output --config /path/to/config.json```
 
 ##### Note
 Linux and macOS binaries names may end with arm64 instead of amd64. It depends on which architecture you need.
 
-### config.json defaults:
+### config.json example:
 ```{
   "mappings": {
     "*|FNAME|*": "params.first_name",
