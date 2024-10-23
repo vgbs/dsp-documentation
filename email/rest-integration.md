@@ -23,8 +23,6 @@ Base URL: https://email-proxy.dsp.vaillant-group.com/api
 
 * Mailpit UI can be accessed from [https://mailpit.qa.dsp.vaillant-group.cloud/](https://mailpit.qa.dsp.vaillant-group.cloud/) (Internal) and [https://mailpit-qa.dsp.vaillant-group.com/](https://mailpit-qa.dsp.vaillant-group.com/) (External).
 
-### Whitelist feature
-We are currently providing you the option to have some recipient emails whitelisted on QA only for the SMTP integration.
 
 ### Important 
 * It is not possible to send out emails from QA to real inboxes.
