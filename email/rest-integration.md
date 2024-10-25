@@ -28,3 +28,5 @@ We are currently providing you the option to have some recipient emails whitelis
 
 ### Important 
 * It is not possible to send out emails from QA to real inboxes.
+* If your account exceeds more than 1000 templates, only the first 1000 can be used.
+* All templates are cached for 3 minutes, meaning updates and creations of templates take 3 minutes to be available for use in the proxy.
