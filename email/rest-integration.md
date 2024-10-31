@@ -23,6 +23,24 @@ Base URL: https://email-proxy.dsp.vaillant-group.com/api
 
 * Mailpit UI can be accessed from [https://mailpit.qa.dsp.vaillant-group.cloud/](https://mailpit.qa.dsp.vaillant-group.cloud/) (Internal) and [https://mailpit-qa.dsp.vaillant-group.com/](https://mailpit-qa.dsp.vaillant-group.com/) (External).
 
+## Using templates
+
+Before you are able to send out an E-Mail template in prod, it needs to be activated in Brevo.
+
+If you plan to use templates using the Proxy, please note that the templating in QA is not fully compliant with the templating in Brevo.
+The reason for that is, that we're fetching the template and render it using custom logic, which might lead to a slightly different result.
+
+Currently, the following limitations are known on QA:
+
+**Implementation Differences**
+- The `truncatechars` filter puts a whitespace in front of the truncation
+
+**Unsupported Filters**
+- `time_parse`
+- `date`
+- `date_i18n`
+- `time_add_date`
+- `time_in_location`
 
 ### Important 
 * It is not possible to send out emails from QA to real inboxes.
