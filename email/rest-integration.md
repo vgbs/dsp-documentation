@@ -35,6 +35,14 @@ Currently, the following limitations are known on QA:
 **Implementation Differences**
 - The `truncatechars` filter puts a whitespace in front of the truncation
 
+**Placeholders**
+Brevo predefines placeholders, that are not known to us during template rendering. Basically, we are only able to access the `params` variables.
+All unknown variables will be omitted, including:
+- Contact attributes like `{{contact.FIRSTNAME}}`, `{{contact.EMAIL}}`
+- `{{mirror}}`
+- `{{unsubscribe}}`
+- `{{update_profile}}`
+
 **Unsupported Filters**
 - `time_parse`
 - `date`
