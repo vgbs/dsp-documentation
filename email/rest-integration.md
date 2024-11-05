@@ -38,10 +38,12 @@ Currently, the following limitations are known on QA:
 **Placeholders**
 Brevo predefines placeholders, that are not known to us during template rendering. Basically, we are only able to access the `params` variables.
 All unknown variables will be omitted, including:
+{% raw %}
 - Contact attributes like `{{contact.FIRSTNAME}}`, `{{contact.EMAIL}}`
 - `{{mirror}}`
 - `{{unsubscribe}}`
 - `{{update_profile}}`
+{% endraw %}
 
 **Unsupported Filters**
 - `time_parse`
