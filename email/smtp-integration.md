@@ -5,9 +5,23 @@ description: SMTP Integration Guide
 
 [&larr; back to Overview](/email)
 
-## SMTP Integration Guide
-Integration with Team Trixie's SMTP is relatively straightforward, though there are some details we need to pay attention to.
+## Brevo SMTP (preferred)
 
+The preferred way to integrate with SMTP is by utilizing Brevo SMTP directly where possible. 
+Follow the [SMTP relay integration guide](https://developers.brevo.com/docs/smtp-integration) to integrate with SMTP within your subaccount.
+
+Currently, we do not provide access to the Mailpit SMTP directly. 
+If you need a shared sandbox for QA integration, the current way to go would be to self-host an instance on your own. 
+Here are some examples:
+- [Mailpit](https://github.com/axllent/mailpit)
+- [Mailcatcher](https://mailcatcher.me/)
+- [Mailhog](https://github.com/mailhog/MailHog)
+
+## SMTP Integration Guide (legacy)
+
+In addition to that, we also provide a centralized SMTP relay, though there are some details we need to pay attention to.
+
+* Currently, The SMTP relay is only able to utilize our DSP subaccount and can not be scaled out to other Sub-Accounts.
 * You need to provide us the "tenant" name of the party to integrate. It can be either the team name or application name and will act as the SMTP username.
 * You need to provide us the desired sender address, so we can ensure that the domain is authenticated (currently only `vaillant-group.com`). Although our custom SMTP relay does not currently mandate a sender, it is important property to ensure reliability and delivery. We will enforce that property in the future.
 * You will receive SMTP username and password.
