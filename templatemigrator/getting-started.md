@@ -12,11 +12,9 @@ description: Getting Started Guide
 3. Conditional Blocks: Conditional logic in templates (e.g., `````*|IF|*`````) is transformed to Brevo's syntax.
 
 ##### Your steps
-1. Report a need of Template Migrator tool.
-2. If you are using macOS or linux, specify whether you need amd64 or arm64.
-3. You'll receive a binary file for the OS of your choice.
-4. You can either specify the input_dir and output_dir (input/output directories) via command-line arguments, or rely on the defaults provided in config.json.
-5. You also need to provide your config.json in command-line arguments. You can find an example below.
+1. Download the latest release binary of the [template-migrator tool](https://github.com/vgbs/template-migrator).
+2. You can either specify the input_dir and output_dir (input/output directories) via command-line arguments, or rely on the defaults provided in config.json.
+3. You also need to provide your config.json in command-line arguments. You can find an example below.
 
 ##### Linux
 Ensure the binary file has execute permissions. You can grant them with:
