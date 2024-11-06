@@ -10,9 +10,11 @@ This tool converts Mailchimp/Mandrill HTML templates into Brevo-compatible templ
 
 ## Features
 
+{% raw %}
 - Convert Mailchimp merge tags (e.g., `*|FNAME|*`) to Brevo format (`{{ params.first_name }}`)
 - Handle conditional blocks (e.g., `*|IF:MC_PREVIEW_TEXT|*`) with Brevo's templating language
 - Customizable tag mappings via `config.json`
+{% endraw %}
 
 ## Usage
 This tool is available as binary file for linux, macOS and Windows. You can find more information here:
