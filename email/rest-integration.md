@@ -27,7 +27,19 @@ Base URL: https://email-proxy.dsp.vaillant-group.com/api
 
 Before you are able to send out an E-Mail template in prod, it needs to be activated in Brevo.
 
-If you plan to use templates using the Proxy, please note that the templating in QA is not fully compliant with the templating in Brevo.
+If you plan to use templates using the Proxy, please note that the following limitations:
+
+### Template Attributes
+
+Brevo offers a way to template attributes like the sender, Reply-To, Subject, etc. Currently, our E-Mail Proxy does not take these attributes actively into consideration.
+When sending out templates, we mandate the use of required headers, and pass it to the Brevo / Mailpit API, therefore overwriting the templated attributes.
+In some situations, the template attributes might be implicity used in the Prod Environment.
+This might happen for some optional parameters (e.g. if attachments are specified in the template but not passed to the Proxy). 
+At the moment, it is only safe to assume that the templated Body is used.
+
+### Templating in QA
+
+Templating in QA is not fully compliant with the templating in Brevo.
 The reason for that is, that we're fetching the template and render it using custom logic, which might lead to a slightly different result.
 
 Currently, the following limitations are known on QA:
