@@ -375,12 +375,12 @@ components:
                   type: string
         functionName:
           type: string
-        retryContext:
-          $ref: '#/components/schemas/RetryContext'
-        traceContext:
-          $ref: '#/components/schemas/TraceContext'
         invocationId:
           type: string
+        traceContext:
+          $ref: '#/components/schemas/TraceContext'
+        retryContext:
+          $ref: '#/components/schemas/RetryContext'
     RetryContext:
       type: object
       properties:
