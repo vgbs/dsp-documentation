@@ -261,6 +261,10 @@ components:
         uri:
           type: string
           format: uri
+        queryParameters:
+          type: object
+          additionalProperties:
+            type: string
         httpMethod:
           type: string
           enum:
@@ -273,10 +277,6 @@ components:
           - OPTIONS
           - TRACE
           - PATCH
-        queryParameters:
-          type: object
-          additionalProperties:
-            type: string
         headers:
           type: object
           additionalProperties:
@@ -408,9 +408,9 @@ components:
           type: object
           additionalProperties:
             type: string
-        traceparent:
-          type: string
         tracestate:
+          type: string
+        traceparent:
           type: string
   securitySchemes:
     code:
