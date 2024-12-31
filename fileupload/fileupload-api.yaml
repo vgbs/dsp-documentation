@@ -256,19 +256,15 @@ components:
     HttpRequestMessageOptionalString:
       type: object
       properties:
-        headers:
-          type: object
-          additionalProperties:
-            type: string
         body:
           type: string
+        uri:
+          type: string
+          format: uri
         queryParameters:
           type: object
           additionalProperties:
             type: string
-        uri:
-          type: string
-          format: uri
         httpMethod:
           type: string
           enum:
@@ -281,6 +277,10 @@ components:
           - OPTIONS
           - TRACE
           - PATCH
+        headers:
+          type: object
+          additionalProperties:
+            type: string
     ExecutionContext:
       type: object
       properties:
