@@ -291,6 +291,8 @@ components:
               type: string
             filter:
               type: object
+            resourceBundleName:
+              type: string
             level:
               type: object
               properties:
@@ -300,8 +302,6 @@ components:
                   type: string
                 localizedName:
                   type: string
-            resourceBundleName:
-              type: string
             handlers:
               type: array
               items:
@@ -334,13 +334,11 @@ components:
                   properties:
                     language:
                       type: string
-                    displayName:
-                      type: string
-                    country:
+                    script:
                       type: string
                     variant:
                       type: string
-                    script:
+                    country:
                       type: string
                     unicodeLocaleAttributes:
                       uniqueItems: true
@@ -360,6 +358,8 @@ components:
                       type: string
                     displayVariant:
                       type: string
+                    displayName:
+                      type: string
                     extensionKeys:
                       uniqueItems: true
                       type: array
@@ -377,10 +377,10 @@ components:
           type: string
         traceContext:
           $ref: '#/components/schemas/TraceContext'
-        invocationId:
-          type: string
         retryContext:
           $ref: '#/components/schemas/RetryContext'
+        invocationId:
+          type: string
     RetryContext:
       type: object
       properties:
