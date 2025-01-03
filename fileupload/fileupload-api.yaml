@@ -256,7 +256,7 @@ components:
     HttpRequestMessageOptionalString:
       type: object
       properties:
-        headers:
+        queryParameters:
           type: object
           additionalProperties:
             type: string
@@ -277,7 +277,7 @@ components:
         uri:
           type: string
           format: uri
-        queryParameters:
+        headers:
           type: object
           additionalProperties:
             type: string
@@ -375,10 +375,10 @@ components:
                   type: string
         functionName:
           type: string
-        traceContext:
-          $ref: '#/components/schemas/TraceContext'
         invocationId:
           type: string
+        traceContext:
+          $ref: '#/components/schemas/TraceContext'
         retryContext:
           $ref: '#/components/schemas/RetryContext'
     RetryContext:
