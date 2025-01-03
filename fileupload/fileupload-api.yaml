@@ -256,15 +256,15 @@ components:
     HttpRequestMessageOptionalString:
       type: object
       properties:
+        headers:
+          type: object
+          additionalProperties:
+            type: string
         body:
           type: string
         uri:
           type: string
           format: uri
-        queryParameters:
-          type: object
-          additionalProperties:
-            type: string
         httpMethod:
           type: string
           enum:
@@ -277,7 +277,7 @@ components:
           - OPTIONS
           - TRACE
           - PATCH
-        headers:
+        queryParameters:
           type: object
           additionalProperties:
             type: string
@@ -377,10 +377,10 @@ components:
           type: string
         traceContext:
           $ref: '#/components/schemas/TraceContext'
-        retryContext:
-          $ref: '#/components/schemas/RetryContext'
         invocationId:
           type: string
+        retryContext:
+          $ref: '#/components/schemas/RetryContext'
     RetryContext:
       type: object
       properties:
