@@ -262,6 +262,10 @@ components:
             type: string
         body:
           type: string
+        queryParameters:
+          type: object
+          additionalProperties:
+            type: string
         uri:
           type: string
           format: uri
@@ -277,10 +281,6 @@ components:
           - OPTIONS
           - TRACE
           - PATCH
-        queryParameters:
-          type: object
-          additionalProperties:
-            type: string
     ExecutionContext:
       type: object
       properties:
@@ -375,12 +375,12 @@ components:
                   type: string
         functionName:
           type: string
-        traceContext:
-          $ref: '#/components/schemas/TraceContext'
         invocationId:
           type: string
         retryContext:
           $ref: '#/components/schemas/RetryContext'
+        traceContext:
+          $ref: '#/components/schemas/TraceContext'
     RetryContext:
       type: object
       properties:
