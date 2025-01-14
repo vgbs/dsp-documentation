@@ -85,10 +85,7 @@ which are then used by the DSP to provision infrastructure.
 
 Application gitops repo is a place,
 where developers write configuration files,
+which are then used by the DSP to deploy applications.
 
-Structure of the application gitops repo:
-
-```
----
-TBD
-```
+If you want to see an example structure of the application gitops repo see
+[DSP MVP GitOps Repository](https://github.com/Digital-Solution-Platform/gitops-digital-solution-platform).

@@ -34,10 +34,7 @@ The general pattern is `<tenant-name>-<team-name>-<env>`.
 
 `customer-solutions-dsp-dev`
 
-1. **Tenant Name** (see example [Tenant Claim File](!localhost)).
-2. **Team Name** (see example [Team Claim File](!localhost)).
-3. **Environment**
-4. [Public GitOps DSP Template](https://github.com/Digital-Solution-Platform/gitops-dsp-demo)
+[GitOps DSP Template](https://github.com/Digital-Solution-Platform/gitops-digital-solution-platform)
 
 During the namespace creation step of team on-boarding along with the tenant cluster a namespace will be created for each team in the shared tenant (spoke) cluster.
 
@@ -50,6 +47,6 @@ This ensures a seamless experience for teams operating in multiple clusters.
 
 1. **Consistent Naming**: The `<tenant-name>-<team-name>-<env>` format unifies team environments and simplifies resource identification.
 2. **Automated Provisioning**: Namespaces are generated based on entries in the tenant and team claim files, reducing manual effort and potential errors.
-3. **Clear Ownership**: Each namespace clearly correspons to a signle team and environment, streamlining both usage and auditing.
+3. **Clear Ownership**: Each namespace clearly corresponds to a signle team and environment, streamlining both usage and auditing.
 
 If you have further questions about namespaces or need assistance with your environment setup, please reach out to the DSP team.
