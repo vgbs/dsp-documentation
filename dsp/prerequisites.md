@@ -1,6 +1,6 @@
 ---
-title: DSP Introduction
-description: Prerequisites
+title: DSP Prerequisites
+description: Fundamental requirements for working with the Digital Solutions Platform (DSP)
 ---
 
 [&larr; back to Overview](/dsp)
