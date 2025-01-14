@@ -39,10 +39,9 @@ The general pattern is `<tenant-name>-<team-name>-<env>`.
 3. **Environment**
 4. [Public GitOps DSP Template](https://github.com/Digital-Solution-Platform/gitops-dsp-demo)
 
-During the namespace creation step of team on-boarding along with the tenant cluster a namespace will be created for each team in hub cluster
-with the same name.
+During the namespace creation step of team on-boarding along with the tenant cluster a namespace will be created for each team in the shared tenant (spoke) cluster.
 
-The same namespace name is also created on the **hub cluster**, mirroring the tenant cluster setup.
+The same namespace is also created on the **hub cluster**, mirroring the tenant cluster setup.
 This ensures a seamless experience for teams operating in multiple clusters.
 
 ---
