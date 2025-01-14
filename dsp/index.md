@@ -13,7 +13,3 @@ description: Overview
 
 Additional resources:
 [DSP Onboarding Confluence](https://groupspace.vaillant-group.com/display/VIXP/2.+Onboarding)
-
-# Troubleshooting
-- Common errors and quick resolutions, helpdesk link.
-- Links to logs, known issues, and support channels (our Teams or Slack maybe).
