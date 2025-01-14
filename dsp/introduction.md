@@ -40,7 +40,7 @@ and security patches are applied by DSP Team to all clusters.
 
 # What we offer?
 1. Standarized CI/CD pipelines (GitHub Workflows) - [Reusable Workflows Repository](https://github.com/Digital-Solutions-Foundation/reusable-workflows).
-2. Automated Infrastructure Provisioning via Application Config Files, Platform Config Files, in future Developer Portal. [Link to repository with Config Files](localhost)
+2. Automated Infrastructure Provisioning via Application Config Files, Platform Config Files, in future Developer Portal. [Link to repository with Config Files](https://github.com/Digital-Solution-Platform/gitops-digital-solution-platform)
 3. Automated application deployment across multi environments using GitOps approach.
 
 ### Infrastructure
