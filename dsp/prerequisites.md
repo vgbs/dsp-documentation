@@ -34,7 +34,7 @@ Ensure that you have completed these steps before proceeding with any activity o
     - Installation guides: [Microsoft Documentation](https://learn.microsoft.com/en-gb/cli/azure/install-azure-cli)
 
 3. **Optional Tools**
-    - **Helm**: [Helm documentation](https://helm.sh/docs/intro/install/)
+    - **Kustomize**: Helpful when building the same infrastructure for multiple environments (see [Documentation](https://kustomize.io/))
 
 In future we want to provide a package with all the tools prebuilt.
 

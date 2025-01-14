@@ -16,8 +16,9 @@ scale, and operate services effectively.
 ## Key Benefits
 
 1. Consistency
-2. Self-Service
-3. Security & Compliance
+2. Harmony
+3. Self-Service
+4. Security & Compliance
 
 ## Pre-requisites
 Please before you begin, check [Prerequisites](prerequisites.md).
