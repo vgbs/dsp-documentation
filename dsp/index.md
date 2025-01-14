@@ -1,29 +1,18 @@
-# DSP
-# Introduction
-- High level overview of DSP setup and benefits
+---
+title: DSP Help
+description: Overview
+---
 
-# Prerequisites
-- Access credentials
-- Necessary CLI tools (kubectl, azure cli)
-- Required permissions (something in AZ Subscription) and organization approvals.
+[&larr; back to Overview](/)
 
-# Provisioning Steps
-- Schedule call with VI-XP Team to discuss about possibility of integrating DSP.
-- One subscription per tenant <-> All teams in tenant share the same subscription.
-- Verification commands
-- Where to get credentials
-- ArgoCD - tbd
+## Contents
+* [Introduction](introduction.md)
+* [Prerequisites](prerequisites.md)
+* [Getting Started](getting-started.md)
+* [Contact](contact.md)
 
-# Namespace management
-- What is your namespace? <tenant>-<team>-<env>
-- Future plan: How to request new namespaces.
-- Future plan: Resource Quotas and RBAC Roles?
-
-# Using DSP
-- Order new environment ( ? ) - must be a process of purchasing new environment.
-
-# Onboarding
-- Example user stories / scenarios.
+Additional resources:
+[DSP Onboarding Confluence](https://groupspace.vaillant-group.com/display/VIXP/2.+Onboarding)
 
 # Troubleshooting
 - Common errors and quick resolutions, helpdesk link.
