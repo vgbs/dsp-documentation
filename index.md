@@ -10,3 +10,4 @@ description: Documentation resources for Digital Solutions Platform (DSP) of the
 * [Password Pusher](pwpush/index.html)
 * [Transactional Email Service](email/index.html)
 * [Template Migrator tool](templatemigrator/index.html)
+* [DSP](dsp/index.md)
