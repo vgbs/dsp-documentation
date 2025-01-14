@@ -69,7 +69,7 @@ as well as provisioning new spokes.
 
 ![Configuration File](./images/configuration-file.png)
 
-How we want to formulate the configuration file from the Developer input, for e.g. cloud resurces.
+Image above shows how we want to formulate the configuration file from the Developer input, for e.g. cloud resources.
 
 See more at [our Confluence Page](https://groupspace.vaillant-group.com/display/VIXP/Digital+Solution+Platform+Architecture).
 
