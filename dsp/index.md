@@ -10,6 +10,7 @@ description: Overview
 * [Prerequisites](prerequisites.md)
 * [Getting Started](getting-started.md)
 * [Namespace Management](namespace-management.md)
+* [Setting Up a Fresh GitOps Repository](gitops-repo.md)
 * [Contact](contact.md)
 
 ---
