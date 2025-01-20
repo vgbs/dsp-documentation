@@ -32,7 +32,6 @@ so they can develop only features that add value to the project.
 Please contact DSP Team via the [Help Desk](https://service.dsp.vaillant-group.com) to configure the initial integration for your project. The team will assist with:
 
 - Configurating organization-level settings.
-- Creating SSH Deploy Keys for accessing private GitOps repositories.
 - Setting up the required GitHub Actions resources (secrets, deploy keys, GitHub Apps) for your repositories.
 
 ### 3.2 Using Starter Workflows
@@ -72,7 +71,7 @@ just merge the PR in the GitOps repository and monitor as ArgoCD applies the cha
 ## 5. Need Assistance?
 
 For support or additional customization, contact the DSP team via the [Help Desk](https://service.dsp.vaillant-group.com).
-The team will assis you in addressing any issues or implementing advanced features.
+The team will assist you in addressing any issues or implementing advanced features.
 
 ---
 
