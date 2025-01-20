@@ -275,5 +275,6 @@ policy enforcement, and continuous delivery at scale.
 
 > **Next Steps**:
 > 1. **Refine Overlays**: Adjust environment patches for your environment-specfic requirements.
+> 2. **CI Integration**: Look into the [CI setup](getting-started-ci.md) to automate deployments.
 
 [&larr; back to Overview](/dsp)

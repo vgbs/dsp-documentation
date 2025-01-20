@@ -11,6 +11,7 @@ description: Overview
 * [Getting Started](getting-started.md)
 * [Namespace Management](namespace-management.md)
 * [Setting Up a Fresh GitOps Repository](gitops-repo.md)
+* [Setting Up a CI](getting-started-ci.md)
 * [Contact](contact.md)
 
 ---
