@@ -60,50 +60,44 @@ plus the optional `templates`.
 **Context**: A single, self-contained workload such as Spring Petclinic.
 **Key Idea**: All manifests reside in a single `base` folder, with environment-specific overlays in environments.
 
-<details>
-    <summary>Example: Spring Petclinic</summary>
-    ```
-    ├── apps
-    │   └── spring-petclinic
-    │       ├── base
-    │       │   ├── deployment.yaml
-    │       │   ├── ingressroute.yaml
-    │       │   ├── kustomization.yaml
-    │       │   ├── postgres-claim.yaml
-    │       │   └── service.yaml
-    │       └── overlays
-    │           ├── dev
-    │           │   ├── kustomization.yaml
-    │           ├── prod
-    │           │   ├── kustomization.yaml
-    │           └── qa
-    │               ├── kustomization.yaml
-    ```
-</details>
+```
+├── apps
+│   └── spring-petclinic
+│       ├── base
+│       │   ├── deployment.yaml
+│       │   ├── ingressroute.yaml
+│       │   ├── kustomization.yaml
+│       │   ├── postgres-claim.yaml
+│       │   └── service.yaml
+│       └── overlays
+│           ├── dev
+│           │   ├── kustomization.yaml
+│           ├── prod
+│           │   ├── kustomization.yaml
+│           └── qa
+│               ├── kustomization.yaml
+```
 
 ### 3.2 Composite Application (Microservice)
 **Context**: The application spans multiple microservices, each potentially with its own deployment or stateful resource.
 **Key Idea**: Each microservice has its own subdirectory in `base`; a top-level `kustomization.yaml` aggregates them. Overlays tailor environment-specific details.
 
-<details>
-    <summary>Example: Service Tracker</summary>
-    ```
-    ├── apps
-    │   ├── service-tracker
-    │   │   ├── base
-    │   │   │   ├── data-api/
-    │   │   │   ├── flights-api/
-    │   │   │   ├── kustomization.yaml (includes all sub-bases)
-    │   │   │   ├── quakes-api/
-    │   │   │   ├── service-tracker-ui/
-    │   │   │   ├── tracker-postgres-db/
-    │   │   │   └── weather-api/
-    │   │   └── overlays
-    │   │       ├── dev/
-    │   │       ├── prod/
-    │   │       └── qa/
-    ```
-</details>
+```
+├── apps
+│   ├── service-tracker
+│   │   ├── base
+│   │   │   ├── data-api/
+│   │   │   ├── flights-api/
+│   │   │   ├── kustomization.yaml (includes all sub-bases)
+│   │   │   ├── quakes-api/
+│   │   │   ├── service-tracker-ui/
+│   │   │   ├── tracker-postgres-db/
+│   │   │   └── weather-api/
+│   │   └── overlays
+│   │       ├── dev/
+│   │       ├── prod/
+│   │       └── qa/
+```
 
 For monorepos containing multiple microservices,
 a composite pattern streamlines joint deployments while preserving clear boundaries between workloads.
