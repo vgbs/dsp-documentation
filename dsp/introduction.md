@@ -87,5 +87,32 @@ Application gitops repo is a place,
 where developers write configuration files,
 which are then used by the DSP to deploy applications.
 
+### How does it work?
+
+#### Configuration Changes:
+The application team pushes configuration changes to their GitOps repository. 
+This repository contains application configurations as well as infrastructure definitions, 
+including Crossplane claims for Azure PostgreSQL Flexible Server.
+
+#### ArgoCD Sync:
+ArgoCD is configured to pull changes from the GitOps repository at regular intervals (e.g., every 3 minutes).
+ArgoCD monitors the repository for any changes.
+
+#### State Synchronization:
+When ArgoCD detects changes in the repository, it synchronizes the state of the Kubernetes cluster with the desired state defined in the repository.
+This includes deploying applications and provisioning infrastructure resources.
+
+#### Resource Provisioning with Crossplane:
+If the GitOps repository contains Crossplane claims (e.g., for Azure PostgreSQL Flexible Server), ArgoCD triggers Crossplane to provision these resources in Azure.
+Crossplane manages the lifecycle of the infrastructure resources based on the claims defined in the repository.
+
+#### Secret Management:
+Once the resources are provisioned, Crossplane automatically creates Kubernetes secrets with details like database connection information.
+These secrets are stored in the Kubernetes cluster and can be accessed by the applications as needed.
+
+By following these steps, ArgoCD ensures that the state of the applications and infrastructure in the Kubernetes cluster is always in sync with the desired state defined in the GitOps repository.
+You can find the flow diagram below:
+![DSP Flow Diagram](./images/dsp-flow.png)
+
 If you want to see an example structure of the application gitops repo see
 [DSP MVP GitOps Repository](https://github.com/Digital-Solution-Platform/gitops-digital-solution-platform).
