@@ -203,7 +203,7 @@ These prerequisites guarantee that you possess the necessary privileges to creat
 For further details on the onboarding and invitation process, consult the [Getting Started](getting-started.md) guide.
 
 1. **Obtain the DSP GitOps Template**
-  - **Objective**: Jumpstart your project with a standarized, pre-structured [GitOps repository template](https://github.com/Digital-Solution-Platform/gitops-digital-solution-platfor).
+  - **Objective**: Jumpstart your project with a standarized, pre-structured [GitOps repository template](https://github.com/Digital-Solution-Platform/gitops-digital-solution-platform).
   - **Significance**: This template aligns with industry best practices, ensuring a consistent folder layour, pre-configured Kustomize files, and example overlays for multiple environments.
   - **Details**: If the target organization is not onboarded onth the DSP yet, contact the DSP Team regarding the [onboarding steps](https://groupspace.vaillant-group.com/x/iUdVGw).
 2. **Create a Dedicated Application Directory**
