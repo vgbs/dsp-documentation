@@ -22,6 +22,18 @@ With DSP,
 developers can focus on creating value-added features while relying on automated pipelines for consistent,
 secure, and scalable deployments.
 
+### GitOps Template for Quick Start
+
+To expedite your repository setup, use the official [GitOps Template](https://github.com/Digital-Solution-Platform/gitops-digital-solution-platform) provided by the DSP.
+This template aligns with the recommended directory layout, Kustomize structure, and environment overlays, enabling:
+
+- Faster onboarding for new projects.
+- Consistent naming.
+
+Simply click **Use this template** on GitHub.
+
+Read the `README.md` to tailor the base manifests and set up environment overlays.
+
 ---
 
 ## 2. Repository Structure Overview
@@ -277,5 +289,6 @@ policy enforcement, and continuous delivery at scale.
 > **Next Steps**:
 > 1. **Refine Overlays**: Adjust environment patches for your environment-specfic requirements.
 > 2. **CI Integration**: Look into the [CI setup](getting-started-ci.md) to automate deployments.
+> 3. **Checkout DSP GitOps Template**: Explore the [official template](https://github.com/Digital-Solution-Platform/gitops-digital-solution-platform)
 
 [&larr; back to Overview](/dsp)
