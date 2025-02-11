@@ -33,7 +33,7 @@ Please before you begin, check [Prerequisites](prerequisites.md).
 3. **Understand the Namespace**
     - Learn how namespaces are used to organize resources and manage access control.
     - Your team's namespace follows the `<tenant-name>-<team-name>-<env>` naming convention. Refer to the [Namespace Management](namespace-management.md) for more details.
-3. **Understand the User management and RBAC**
+4. **Understand the User management and RBAC**
     - Learn how users are managed and role based access is provided to users to access resources and manage access control.
     - Refer to the [User and RBAC Management](rbac-management.md) for more details.
 
