@@ -19,7 +19,7 @@ By following a standarized prcess , teams can efficiently organize their users a
 
 During on-boarding process of tenants/teams, DSP provisions Entra ID (previously Azure AD) groups and assign owners for every usecase to effectively manage users. These groups further can be managed by individual tenant/team owners. DSP uses these groups for RBAC management.
 
-- **Tenant level grouos**: To manage the users at each tenant level.
+- **Tenant level groups**: To manage the users at each tenant level.
 - **Team specific groups**: To manage users of a team.
 
 
