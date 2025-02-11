@@ -1,5 +1,5 @@
 ---
-title: DSP User Management and RBAC
+title: DSP User and RBAC Management
 description: User and RBAC Management
 ---
 
