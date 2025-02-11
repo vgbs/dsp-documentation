@@ -49,7 +49,7 @@ For a customer-solutions tenant a group with name `EID-DSP-customer-solutions-us
 
 # Key Takeaways
 
-1. **Consistent Naming**: The `EID-DSP-<tenant-name>-<team-name>-users` format unifies team grouos and simplifies user management.
+1. **Consistent Naming**: The `EID-DSP-<tenant-name>-<team-name>-users` format unifies team groups and simplifies user management.
 2. **Automated Provisioning**: Groups and role assignments are provisioned during on-boarding based on entries in the tenant and team claim files, reducing manual effort and potential errors.
 3. **Clear Ownership**: Each team specific groups corresponds to a single team where members of these groups are able to access their own namespace to provide a clear isolation for access control.
 
