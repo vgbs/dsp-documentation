@@ -73,7 +73,7 @@ To use the DSP hosted runner, add the runner label to your workflow file into th
 ```yaml
 jobs:
   build:
-    runs-on: [dsp-linux]
+    runs-on: dsp-linux
 ```
 
 ## 5. Testing and Validation
