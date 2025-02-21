@@ -56,7 +56,27 @@ Once changes are merged into the main branch of the GitOps repository:
 
 ---
 
-## 4. Testing and Validation
+## 4. Using DSP Hosted GitHub Runner
+
+The DSP team provides GitHub Runners for every organization, which is hosted on the Vaillant Group infrastructure.
+This allows you to run your CI/CD workflows on internal network and dedicated hardware for cost-effective and secure execution.
+
+Currently, we support the following runners:
+
+- `dsp-linux`: x64 linux runner with Docker support.
+
+### 4.1 Using DSP Hosted Runner
+
+We are providing runners for each organization, which can be used for all repositories within the organization.
+To use the DSP hosted runner, add the runner label to your workflow file into the `runs-on` section.
+
+```yaml
+jobs:
+  build:
+    runs-on: dsp-linux
+```
+
+## 5. Testing and Validation
 
 After setting up the workflows you can trigger a workflows by committing and pushing changes to the main repository.
 The CI should run build and test steps, and deploy the application to the target environment, with building and pushing the container image.
@@ -68,7 +88,7 @@ just merge the PR in the GitOps repository and monitor as ArgoCD applies the cha
 
 ---
 
-## 5. Need Assistance?
+## 6. Need Assistance?
 
 For support or additional customization, contact the DSP team via the [Help Desk](https://service.dsp.vaillant-group.com).
 The team will assist you in addressing any issues or implementing advanced features.

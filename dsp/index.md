@@ -16,6 +16,9 @@ description: Overview
 * [Setting Up a CI](getting-started-ci.md)
 * [Contact](contact.md)
 
+## Troubleshooting
+* [Troubleshooting](troubleshooting.md)
+
 ---
 
 ## Confluence resources
