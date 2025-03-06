@@ -32,6 +32,14 @@ DSP provided Kubernetes cluster is a multi tenant shared resource which has a lo
 
 ---
 
+## RBAC for shared Azure resources?
+
+As the DSP provides a shared kubernetes cluster and supporting infrastructure in azure there is a need for teams to read the status of the resources.
+For example a team might need to obtain the outbound IP address of the cluster to whitelist it in a firewall.
+In order to achieve this, the teams are provided with read only access to the shared tenant resources.
+
+---
+
 ## How DSP Provides access to kubernetes cluster and access to the team namespace?
 
 During the registration of a tenant & team,  Entra ID group is created for each tenant and team.
