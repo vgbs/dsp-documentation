@@ -61,8 +61,9 @@ spec:
   target:
     # The Secret template is exposed for customization
     template:
-      # You can use inline templates to construct your desired config file that contains your secret if needed
+      mergePolicy: Merge # Template is merged with generated secret
       data:
+        # You can use inline templates to construct your desired config file that contains your secret if needed
         config.yml: |
           salesforce:
             apiKey: {{ .salesforceApiKey }}
