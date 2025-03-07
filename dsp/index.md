@@ -11,6 +11,7 @@ description: Overview
 * [Getting Started](getting-started.md)
 * [Namespace Management](namespace-management.md)
 * [User and RBAC Management](rbac-management.md)
+* [Secret Management](secret-management.md)
 * [Example GitOps Applications](example-applications.md)
 * [Setting Up a Fresh GitOps Repository](gitops-repo.md)
 * [Setting Up a CI](getting-started-ci.md)
