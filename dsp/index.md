@@ -17,6 +17,7 @@ description: Overview
 * [Contact](contact.md)
 
 ## Troubleshooting
+* [How-To Articles](howto.md)
 * [Troubleshooting](troubleshooting.md)
 
 ---
