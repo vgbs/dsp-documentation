@@ -38,6 +38,7 @@ The ExternalSecret resource references the secret in the Key Vault and specifies
 
 Following is an example of an ExternalSecret resource that moounts a secret called `salesforceApiKey` from the Key Vault to the Kubernetes cluster in a secret resource called `salesforce-api-key`. For more advanced examples on the ExternalSecret resource, refer to the [ExternalSecret API documentation](https://external-secrets.io/latest/api/externalsecret/).
 
+{% raw %}
 ```yaml
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
@@ -74,6 +75,7 @@ spec:
       remoteRef:
         key: salesforceApiKey
 ```
+{% endraw %}
 
 ---
 
