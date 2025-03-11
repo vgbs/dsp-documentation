@@ -51,7 +51,7 @@ metadata:
 
 spec:
   secretStoreRef:
-    name: azure-keyvault
+    name: azure-keyvault # SecretStore name is always "azure-keyvault"
     kind: SecretStore 
 
   # RefreshInterval is the amount of time before the values reading again from the SecretStore provider
@@ -71,9 +71,9 @@ spec:
 
   # Data defines the connection between the Kubernetes Secret keys and the Provider data
   data:
-    - secretKey: salesforceApiKey
+    - secretKey: salesforceApiKey # Deisred key in the Kubernetes Secret
       remoteRef:
-        key: salesforceApiKey
+        key: salesforceApiKey # Key in the Azure Key Vault
 ```
 {% endraw %}
 
