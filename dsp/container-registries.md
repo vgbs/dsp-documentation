@@ -42,7 +42,7 @@ During the registration of a team, a team container registry can be enabled and 
 
 The general pattern is `dspacr<uniqueName>`.
 
-Once the container registry has been provisioned it can be found in the teams global resource group. The pattern for the resource group name is: rg-<tenant-name>-<team-name>-global
+Once the container registry has been provisioned it can be found in the teams global resource group. The pattern for the resource group name is: `rg-<tenant-name>-<team-name>-global`
 Access is granted to the resource group by the Teams DevOps role assignment. The DevOps role can manage the container registry in full.
 
 ### Example
