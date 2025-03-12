@@ -11,7 +11,7 @@ This page provides an overview of the Azure Container Registry provisioning proc
 
 Centralised provisioning of container registries and how they are created and managed within the DSP environment is crucial for organizing resources and ensuring proper access control.
 
-Detailed user documentation is provided in Confluence and gives [step by step instructions on how to manage a team container registry](https://groupspace.vaillant-group.com/display/VIXP/2.6+Team+Container+Registriy).
+Detailed user documentation is provided in Confluence and gives [step by step instructions on how to manage a team container registry](https://groupspace.vaillant-group.com/display/VIXP/How+to+Manage+My+Team+Container+Registriy).
 
 ---
 
