@@ -10,6 +10,7 @@ description: Overview
 * [Prerequisites](prerequisites.md)
 * [Getting Started](getting-started.md)
 * [Namespace Management](namespace-management.md)
+* [Network Access](network-access.md)
 * [User and RBAC Management](rbac-management.md)
 * [Container Registries](container-registries.md)
 * [Secret Management](secret-management.md)
