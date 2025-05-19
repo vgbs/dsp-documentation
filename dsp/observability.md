@@ -68,7 +68,7 @@ This document describes the observability setup for the platform and tenant envi
 ### Spoke Cluster Log Flow
 
 1. **Grafana Alloy** is deployed on every spoke cluster, collecting logs from all namespaces.
-2. Logs are sent to **Azure Blob Storage**, with each team's logs stored in their respective blobs.
+2. Logs are sent to central Loki instance, which then send them to Azure Blob Storage, with each team's logs stored in their respective blobs.
 3. **Platform Team Grafana** can only access and display cluster-level logs (excluding team namespaces).
 4. Each team has a dedicated **Grafana instance** (hosted on the hub cluster), which provides access only to logs from their own namespaces.
 
@@ -77,7 +77,7 @@ This document describes the observability setup for the platform and tenant envi
 ## Access Control & Security
 
 - **Platform Team:** 
-    - Full visibility into all logs from the hub cluster and cluster-level spoke clusters via **Platform Team Grafana** instance. 
+    - Full visibility into all logs from the hub cluster and cluster-level logs from spoke clusters via **Platform Team Grafana** instance. 
     - No access to team/application logs.
 - **Tenant Teams (Spoke Clusters):**
     - Teams can only access logs from their own namespaces via their dedicated Grafana instance.
