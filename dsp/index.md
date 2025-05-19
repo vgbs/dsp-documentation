@@ -17,6 +17,7 @@ description: Overview
 * [Example GitOps Applications](example-applications.md)
 * [Setting Up a Fresh GitOps Repository](gitops-repo.md)
 * [Setting Up a CI](getting-started-ci.md)
+* [Observability](observability.md)
 * [Contact](contact.md)
 
 ## Troubleshooting
