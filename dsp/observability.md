@@ -80,6 +80,6 @@ This document describes the observability setup for the platform and tenant envi
     - Full visibility into all logs from the hub cluster and cluster-level logs from spoke clusters via **Platform Team Grafana** instance. 
     - No access to team/application logs.
 - **Tenant Teams (Spoke Clusters):**
-    - Teams can only access logs from their own namespaces via their dedicated Grafana instance.
+    - Teams can access logs from their own namespaces and cluster-level logs via their dedicated Grafana instance.
     - No cross-team log access is possible; access is enforced at the namespace and storage blob level using built-in multi tenancy mechanism.
     - Grafana instance is secured behind VPN access, ensuring that only authorized users can view logs.
