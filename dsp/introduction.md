@@ -46,8 +46,8 @@ and security patches are applied by DSP Team to all clusters.
 ### Infrastructure
 
 On a very high level,
-we provide infrastructure like shared Kubernetes Resources (clusters, databases, etc) of one Cotrol Plane and multiple Environment Clusters,
-which are Kubernetes clusters assigned to indivdual Tenants like VI-..., IR-...
+we provide infrastructure like shared Kubernetes Resources (clusters, databases, etc) of one Control Plane and multiple Environment Clusters,
+which are Kubernetes clusters assigned to individual Tenants like VI-..., IR-...
 These clusters are shared across multiple teams (projects) with namespaces for each environment.
 
 The Spokes interact with Control Plane,
