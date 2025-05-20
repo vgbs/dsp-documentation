@@ -10,6 +10,7 @@ description: Observability tools and practices for the Digital Solutions Platfor
 This page provides an overview of the observability tools and practices used in the Digital Solutions Platform (DSP).
 Observability is a critical aspect of modern software development and operations, enabling teams to monitor, troubleshoot, and optimize their applications effectively.
 It encompasses various tools and practices that provide insights into the performance, health, and behavior of applications and infrastructure.
+More details about the internals of the observability setup can be found on the [Observability with LGTM+](https://groupspace.vaillant-group.com/x/Ha99Hg) Confluence page.
 
 ---
 
