@@ -40,7 +40,7 @@ Following is an example of an ExternalSecret resource that moounts a secret call
 
 {% raw %}
 ```yaml
-apiVersion: external-secrets.io/v1beta1
+apiVersion: external-secrets.io/v1
 kind: ExternalSecret
 metadata:
   name: salesforce-api-key
