@@ -76,6 +76,12 @@ jobs:
     runs-on: dsp-linux
 ```
 
+### 4.2 Limitations
+
+- The DSP hosted runners have to be registered once for an organization.
+- The runners are stateless, meaning that they do not persist any data between runs and are deleted after the run is finished.
+- Docker-In-Docker support is currently limited. While Docker images can be built and pushed, more sophisticated Docker-in-Docker setups (like using [kind](https://kind.sigs.k8s.io/)) may not work as expected.
+
 ## 5. Testing and Validation
 
 After setting up the workflows you can trigger a workflows by committing and pushing changes to the main repository.
