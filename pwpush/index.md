@@ -5,8 +5,9 @@ description: Overview
 
 [&larr; back to Overview](/)
 
-## Contents
+## IMPORTANT NOTE
+Password Pusher documentation was moved to the Confluence.
 
-* [Getting Started](getting-started.md)
-* [API Documentation](https://pw.dsp.vaillant-group.com/api)
+You can find it here: [Password Pusher Documentation](https://groupspace.vaillant-group.com/display/VIXP/Password+Pusher).
+
 
