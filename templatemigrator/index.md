@@ -5,6 +5,7 @@ description: Overview
 
 [&larr; back to Overview](/)
 
-## Contents
-* [Quick Overview](quick-overview.md)
-* [Getting Started](getting-started.md)
+## IMPORTANT NOTE
+Template Migrator documentation was moved to the Confluence. 
+
+You can find it here: [Template Migrator Documentation](https://groupspace.vaillant-group.com/display/VIXP/Transactional+Email#TransactionalEmail-TemplateMigratorTool).
