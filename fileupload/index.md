@@ -5,9 +5,8 @@ description:
 
 [&larr; back to Overview](/)
 
-## Contents
+## IMPORTANT NOTE
+Fileupload documentation was moved to the Confluence.
 
-* [Getting Started](fileupload-readme.md)
-* [API Documentation](fileupload-documentation.html)
-* [Dashboard for upload monitoring](fileupload-dashboard.md)
+You can find it here: [Fileupload Documentation](https://groupspace.vaillant-group.com/display/VIXP/Salesforce+Fileupload).
 
