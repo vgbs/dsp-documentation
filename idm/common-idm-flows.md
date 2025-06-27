@@ -57,6 +57,9 @@ the delete action with her password.
 ```
 https://identity-qa.vaillant-group.com/auth/realms/vaillant-germany-b2c/user-account/delete?client_id=<CLIENT_ID>&redirect_uri=<REDIRECT_URI>
 ```
+The default deletion kind is Soft. For that you don't have to specify any additional parameters.
+If you want to have a hard deletion then you need to add a query parameter `deletionKind=hard`.
+For soft deletion you can also add `deletionKind=soft` explicitly but it is not necessary.
 
 If your service is interested in the event of user account deletion, you can register
 a [webhook](developer-documentation.md#webhooks), which will be notified everytime a user is deleted.

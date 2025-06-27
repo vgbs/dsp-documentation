@@ -250,8 +250,8 @@ These information are contained in the response of this endpoint:
 
 ## Webhooks
 
-Webhooks are used to notify consuming services of certain events. Currently, we notify our consumers, whenever a user
-account is deleted.
+Webhooks are used to notify consuming services of certain events. Currently, we notify our consumers, whenever a B2C user
+account is deleted. 
 In order to become a consumer, please let us know the WEBHOOK_URL we should call, so we can set it up for you.
 If you are looking for other events, such as email address updates or logins, please let us know.
 
@@ -263,5 +263,8 @@ Content-Type: application/json
   "action": "user_delete",
   "userId": "user-id",
   "deletedAt": "2020-12-31T10:15:30Z"
+  "deletionKind": "soft"
 }
 ```
+**Note**
+In case of a hard deletion, "action" will have value "user_hard_delete" and the "deletionKind" will have value "hard".
