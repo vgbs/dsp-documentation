@@ -267,4 +267,4 @@ Content-Type: application/json
 }
 ```
 **Note**
-In case of a hard deletion, "action" will have value "user_hard_delete" and the "deletionKind" will have value "hard".
+In case of a hard deletion, "deletionKind" will have value "hard".
