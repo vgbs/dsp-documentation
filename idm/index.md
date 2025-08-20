@@ -8,6 +8,7 @@ description: Overview
 ## Contents
 
 * [Getting Started](developer-documentation.md)
+* [Client Audiences and Token Exchange](client-audiences-and-token-exchange.md)
 * [Common IDM Flows](common-idm-flows.md)
 * [User Import from Legacy Systems (B2C Only)](user-import.md)
 * [API Documentation](api-documentation.html)
