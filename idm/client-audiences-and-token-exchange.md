@@ -57,6 +57,20 @@ audience=example-client
 }
 ```
 
+## Token Exchange Flow
+
+Assuming we have 3 clients (A, B, C) in place.
+
+- **Client A** authenticates the user Alice and passes the token to ingrate with **Client B** 
+- **Client B** receives a token issued to and can perform actions on behalf the user.
+- **Client B** is now re-using the token and sends it to **Client C**.
+- **Client C** validates the token but rejects it because the audience does not match its own Client ID.
+- **Client B** must request a new token using Token Exchange to obtain a token that is valid for **Client C**.
+
+This is where client audiences come into play. We can configure Client A so that it includes audiences ("aud" claim) in its token which protects against this misuse. The claim includes all the Client IDs the token is meant to be used for. Client libraries will then validate the audience and reject a request with a non-matching audience.
+
+![Token Exchange Flow](/idm/token-exchange-flow.png)
+
 ## How to configure Client Audiences and Token Exchange
 
 Create a [Helpdesk ticket](https://service.dsp.vaillant-group.com) to request the configuration of client audiences and token exchange for your application. The DSP team will assist you with setting up the necessary client audiences in IDM.
