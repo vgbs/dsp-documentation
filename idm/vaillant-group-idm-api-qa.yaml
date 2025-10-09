@@ -783,6 +783,10 @@ components:
         activated:
           type: boolean
           description: Indicates whether the user completed the activation process
+        locale:
+          type: string
+          description: "Effective Locale of the user. If the user doesn't have a preferred\
+            \ locale, it will be the locale of the realm"
     SearchResultResponseB2CUserResponse:
       type: object
       properties:
