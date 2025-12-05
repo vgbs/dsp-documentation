@@ -9,7 +9,7 @@ description: Developer Documentation
 
 What we need from you to set everything up:
 
-* Are you using authentication in a frontend, a backend or both?
+* Are you using authentication in a frontend, a backend, or both?
 * Which Realms do you need access to:
     * Brand
     * Country
@@ -49,6 +49,24 @@ sends it together with
 its [client-id and client-secret](https://www.oauth.com/oauth2-servers/client-registration/client-id-secret/), receives
 an access token and typically creates a server-side session where the access token is stored. It then sends back the
 sessionId to the frontend. The frontend doesn't have to handle refresh or access tokens.
+
+
+### Bearer-Only Clients
+
+In addition to standard OAuth2 clients for web applications, we support bearer-only clients designed to secure APIs and backend services. Bearer-only clients act as resource servers: they validate incoming access tokens but do not initiate their own authentication or authorization flows.
+When to Use Bearer-Only Clients
+
+Bearer-only clients are ideal for scenarios such as:
+
+- Backend APIs that need to verify access tokens issued by a central SSO provider 
+- Microservices serving protected resources and not managing user authentication directly
+- Service-to-service communication where the caller already possesses a valid access token
+
+Unlike regular clients, bearer-only clients do not require redirect URIs or client secrets since they do not perform OAuth2 authorization flows. 
+Their role is strictly to validate bearer tokens presented in API requests—this validation happens entirely within your API, using Keycloak’s public keys and configuration.
+
+Keycloak’s responsibility is to issue tokens; your API is responsible for verifying the tokens’ authenticity, validity, and claims (such as audience and expiration).
+Regular (standard) OAuth2 clients initiate authentication flows and require additional configuration (redirect URIs, secrets) for user login and token acquisition. Bearer-only clients, in contrast, are strictly for token validation, streamlining the security process for APIs and backend services.
 
 ## SSO Adapters
 
