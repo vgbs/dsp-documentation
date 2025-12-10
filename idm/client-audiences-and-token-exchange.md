@@ -18,6 +18,11 @@ In short: The audience defines "who this token is for."
 
 When a client or resource server receives a token, it must validate the aud claim and must check that its identifier is included in the aud claim.
 
+> ##### WARNING
+>
+> Currently, IDM only supports setting other IDM clients as audiences.
+
+
 ## What is Token Exchange?
 
 Token Exchange is a protocol that allows a client to exchange one token for another, typically to obtain a token with a different audience or scope. This is useful in scenarios where a service needs to act on behalf of a user or another service, and it needs to obtain a token that is valid for the target service.
