@@ -112,7 +112,7 @@ keycloak.init({onLoad: 'login-required', "pkceMethod": "S256"})
     });
 ```
 
-## Available Information in the Token and the Userinfo
+## Available Information in the Access Token
 
 The JWT Tokens you get from the SSO contains several Vaillant-specific pieces
 of information about the user. The following information are provided
@@ -157,6 +157,8 @@ automatically in each JWT:
   "salesforceBrandDetailContactId": "7981"
 }
 ```
+
+## Available Information in the Userinfo Endpoint
 
 Additionally, the SSO provides a openid-connect userinfo endpoint to retrieve
 additional information about a given user. As with the JWT, this userinfo
