@@ -10,6 +10,7 @@ description: Overview
 * [Getting Started](developer-documentation.md)
 * [Client Audiences and Token Exchange](client-audiences-and-token-exchange.md)
 * [Common IDM Flows](common-idm-flows.md)
+* [Default Configuration](default-configuration.md)
 * [User Import from Legacy Systems (B2C Only)](user-import.md)
 * [API Documentation](api-documentation.html)
 * [NSC Documentation](nsc-documentation.md)
