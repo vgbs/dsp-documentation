@@ -51,7 +51,9 @@ Your backend needs an endpoint that:
 4. Redirects the user to the intended page.
  
 **Keycloak token exchange request:**
- 
+
+Also see [Client Audiences and Token Exchange](client-audiences-and-token-exchange.md) for more details on token exchange.
+
 ```
 POST /realms/{realm}/protocol/openid-connect/token
  
