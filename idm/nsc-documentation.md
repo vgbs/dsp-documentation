@@ -49,6 +49,10 @@ The user activation can be done automatically or manually via the lead managemen
 
 In both cases the user will get the activation e-mail after.
 
+> **IMPORTANT NOTE:**
+> 
+> The owner of the Salesforce User Account must be **ACTIVE** and **located in the same country as the user**. Otherwise, the integration with IDM will not work properly.
+
 ## User Support
 
 As the identity management is a complex system also many different types of errors can occur. Most of them are problems with the login, the activation or the password reset. For those cases you can directly look up the e-mail address or a Salesforce ID in our customer history log. For access please create an issue in [DSC service desk](https://service.dsp.vaillant-group.com).

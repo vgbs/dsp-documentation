@@ -288,3 +288,12 @@ Content-Type: application/json
 ```
 **Note**
 In case of a hard deletion, "deletionKind" will have value "hard".
+
+## QA Testing
+To test the flow in the QA environment, you will need Azure VPN access to reach the [mailcatcher](https://mailcatcher.qa.dsp.vaillant-group.cloud/).
+By default, all IDM system emails are caught there instead of being delivered to existing mailboxes. If you need to test user flows, like activation and so on,
+you will find the message there and can proceed as you'd normally do with the received email.
+
+If you cannot use our Azure VPN (for example, on Windows), or need to test the flow with real email inbox, there is an option to whitelist specific addresses.
+Please reach out to us with the list of email addresses you want to whitelist. 
+Please bear in mind that this is not the default behavior and should only be used for specific use cases.
