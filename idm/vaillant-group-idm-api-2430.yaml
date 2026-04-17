@@ -1,0 +1,553 @@
+openapi: 3.0.1
+info:
+  title: Vaillant Group IDM API
+  description: API provided by the Vaillant Group Identity Management
+  version: "4.0"
+servers:
+- url: https://identity.vaillant-group.com/api
+  description: Prod
+  variables: {}
+- url: https://identity-qa.vaillant-group.com/api
+  description: QA
+  variables: {}
+security:
+- basicAuth: []
+paths:
+  /api-developer/clients/{client_id}/change-secret:
+    put:
+      tags:
+      - API-Developer
+      summary: Refresh client secret for the Api-Developer realm
+      operationId: refreshClientSecret
+      parameters:
+      - name: client_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientCredentialsResponse'
+        "400":
+          description: Client not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Unexpected internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api-developer/clients:
+    post:
+      tags:
+      - API-Developer
+      summary: Registers a client for the Api-Developer realm
+      operationId: registerApiDeveloperClient
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClientRegistrationRequest'
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientCredentialsResponse'
+        "400":
+          description: Invalid email address.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "409":
+          description: Client with same clientId has already been registered or Service
+            Account User with same email already exists.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "500":
+          description: Unexpected internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api-developer/users/{user_id}:
+    put:
+      tags:
+      - API-Developer
+      summary: De-/activate a user for the API Developer Portal
+      operationId: changeApiDeveloperUserStatus
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiDeveloperUserChangeStatusRequest'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDeveloperUserRegistrationResponse'
+        "409":
+          description: User is already activated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "404":
+          description: User not found
+        "422":
+          description: Error during validation of the request object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorMessage'
+        "500":
+          description: Unexpected internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api-developer/users:
+    post:
+      tags:
+      - API-Developer
+      summary: Registers a user for the API Developer Portal
+      operationId: registerApiDeveloperUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiDeveloperUserRegistrationRequest'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiDeveloperUserRegistrationResponse'
+        "409":
+          description: User is already activated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "422":
+          description: Error during validation of the request object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorMessage'
+        "500":
+          description: Unexpected internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /b2b/countries/{country}/brands/{brand}/user-registrations:
+    post:
+      tags:
+      - B2B
+      summary: Registers a b2b user
+      description: "The registration of a b2b user can take several seconds, up to\
+        \ minutes. This endpoint will only accept the registration request and process\
+        \ it asynchronously. Use the returned registration resource link to query\
+        \ registration status."
+      operationId: registerB2BUser
+      parameters:
+      - name: country
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: brand
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - SaunierDuval
+          - Vaillant
+          - Bulex
+          - Glow-worm
+          - AWB
+          - Protherm
+          - HermannSaunierDuval
+          - DemirDoekuem
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/B2BUserRegistrationRequest'
+      responses:
+        "202":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/B2BUserRegistrationResponse'
+          links:
+            GetB2bStatus:
+              operationId: getB2BRegistrationStatus
+              parameters:
+                statusId: $response.body#/id
+              description: "The `id` value returned in the response can be used as\
+                \ the `registrationId` parameter in `GET /b2b/countries/{country}/brands/{brand}/user-registrations/{registrationId}`."
+        "422":
+          description: Error during validation of the request object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorMessage'
+        "500":
+          description: Unexpected internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /b2b/countries/{country}/brands/{brand}/user-registrations/{registrationId}:
+    get:
+      tags:
+      - B2B
+      summary: Gets the status of a b2b user registration
+      operationId: getB2BRegistrationStatus
+      parameters:
+      - name: country
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: brand
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - SaunierDuval
+          - Vaillant
+          - Bulex
+          - Glow-worm
+          - AWB
+          - Protherm
+          - HermannSaunierDuval
+          - DemirDoekuem
+      - name: registrationId
+        in: path
+        description: Id of the b2b user registration
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "200":
+          description: When status is RUNNING or COMPLETED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/B2BRegistrationStatusResponse'
+        "404":
+          description: When no status was found for the provided id
+        "500":
+          description: When the activation terminated exceptionally
+  /b2c/countries/{country}/brands/{brand}/users:
+    get:
+      tags:
+      - B2C
+      summary: Get a b2c user
+      operationId: getB2CUser
+      parameters:
+      - name: country
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: brand
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - SaunierDuval
+          - Vaillant
+          - Bulex
+          - Glow-worm
+          - AWB
+          - Protherm
+          - HermannSaunierDuval
+          - DemirDoekuem
+      - name: email
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: "All users matching all criteria. For lookup by email, there\
+            \ can be at most a single user in the result set"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/B2CUserResponse'
+        "500":
+          description: Unexpected internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      tags:
+      - B2C
+      summary: Registers a b2c user
+      operationId: registerB2CUser
+      parameters:
+      - name: country
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: brand
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - SaunierDuval
+          - Vaillant
+          - Bulex
+          - Glow-worm
+          - AWB
+          - Protherm
+          - HermannSaunierDuval
+          - DemirDoekuem
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/B2CUserRegistrationRequest'
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/B2CUserRegistrationResponse'
+        "409":
+          description: User is already activated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        "422":
+          description: Error during validation of the request object
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrorMessage'
+        "500":
+          description: Unexpected internal error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    ClientCredentialsResponse:
+      type: object
+      properties:
+        clientSecret:
+          type: string
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: integer
+          description: HTTP Status code
+          format: int32
+          example: 500
+        error:
+          type: string
+        message:
+          type: string
+    ClientRegistrationRequest:
+      required:
+      - clientId
+      - email
+      type: object
+      properties:
+        clientId:
+          type: string
+          description: ClientId to use for the new client. Must be unique.
+        email:
+          type: string
+          description: Email address to assign to the Service Account User associated
+            with the client. Must be unique.
+    ApiDeveloperUserRegistrationResponse:
+      type: object
+      properties:
+        userId:
+          type: string
+          description: IDM Id of the user
+    ValidationErrorMessage:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: string
+    ApiDeveloperUserChangeStatusRequest:
+      required:
+      - enabled
+      type: object
+      properties:
+        enabled:
+          type: boolean
+    ApiDeveloperUserRegistrationRequest:
+      required:
+      - clientId
+      - email
+      - username
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+        company:
+          type: string
+        clientId:
+          type: string
+          description: IDM client id for the API Developer Portal
+        redirectUri:
+          type: string
+          description: The URI where the user gets redirect to after successful activation.
+    B2BUserRegistrationResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Id of the activation status
+          format: uuid
+          example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+        href:
+          type: string
+          description: link to fetch the status
+          example: /activate/b2b/status/3fa85f64-5717-4562-b3fc-2c963f66afa6
+    B2BUserRegistrationRequest:
+      required:
+      - brandDetailContactId
+      - email
+      - locale
+      type: object
+      properties:
+        salutation:
+          type: string
+        firstname:
+          type: string
+        lastname:
+          type: string
+        email:
+          type: string
+        locale:
+          type: string
+        brandDetailContactId:
+          type: string
+          description: Brand detail contact id of contact to be activated
+        clientId:
+          type: string
+          description: IDM client id
+        redirectUri:
+          type: string
+          description: The URI where the user gets redirect to after successful activation.
+    B2BRegistrationStatusResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: IDM Id of the user.
+          enum:
+          - RUNNING
+          - COMPLETED
+          - ERROR
+    B2CUserRegistrationResponse:
+      type: object
+      properties:
+        userId:
+          type: string
+          description: IDM Id of the user
+    B2CUserRegistrationRequest:
+      required:
+      - brandDetailContactId
+      - clientId
+      - email
+      - locale
+      - redirectUri
+      type: object
+      properties:
+        firstname:
+          type: string
+          description: Is used in the activation email
+        lastname:
+          type: string
+          description: Is used in the activation email
+        email:
+          type: string
+        locale:
+          type: string
+          description: Language of the user e.g. "fr" or "nl"
+        brandDetailContactId:
+          type: string
+          description: Brand detail contact id of contact to be activated
+        clientId:
+          type: string
+          description: IDM client id
+        redirectUri:
+          type: string
+          description: The URI where the user gets redirect to after successful activation.
+    B2CUserResponse:
+      type: object
+      properties:
+        userId:
+          type: string
+          description: IDM Id of the user
+        email:
+          type: string
+        brandDetailContactId:
+          type: string
+        activated:
+          type: boolean
+          description: Indicates whether the user completed the activation process
+    SearchResultResponseB2CUserResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/B2CUserResponse'
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
