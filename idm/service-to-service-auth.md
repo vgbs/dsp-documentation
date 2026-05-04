@@ -1,3 +1,10 @@
+---
+title: Identity Management Help
+description: Service to Service Auth Documentation
+---
+
+[&larr; back to Overview](/idm)
+
 # `vaillant-s2s` (Service Realm) – Service-to-service authentication
 
 This repo implements [ADR 001 “Service Authentication: single OAuth authority”](https://groupspace.vaillant-group.com/pages/viewpage.action?pageId=574215962&spaceKey=VGOA&title=ADR%2B001%2B-%2BService%2BAuthentication%2Bsingle%2BOAuth%2Bauthority) by introducing a **single dedicated Keycloak realm**
