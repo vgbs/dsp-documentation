@@ -51,7 +51,7 @@ When triggered for a partner client, IDM:
 
 ### Logout request example
 
-```
+```bash
 curl -X GET "https://identity[-qa].vaillant-group.com/realms/<realm-name>/protocol/openid-connect/logout?id_token_hint=<id-token>&post_logout_redirect_uri=<post-logout-redirect-uri>"
 ```
 
@@ -59,7 +59,7 @@ The expected response code is 204 No Content, however one should bear in mind th
 
 ### Revoke grant request example
 
-```
+```bash
 curl -X POST "https://identity[-qa].vaillant-group.com/realms/<realm-name>/protocol/openid-connect/revoke" \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -d "client_id=<client-id>" \
@@ -70,7 +70,7 @@ curl -X POST "https://identity[-qa].vaillant-group.com/realms/<realm-name>/proto
 
 The expected response code is 200 OK with optional body - if token is revoked correctly, no content is provided in the response, yet if the refresh token provided in the request body is incorrect or already revoked, response body contains the following JSON content:
 
-```
+```json
 {
   "error": "invalid_token",
   "error_description": "Invalid token"
@@ -79,7 +79,7 @@ The expected response code is 200 OK with optional body - if token is revoked co
 
 ## Offline session termination webhook
 
-IDM API exposes a webhook for revoking offline sessions using partner ID. 
+IDM API exposes a webhook for revoking offline sessions using partner ID for a speicifc user in given realm:
 
 - **Path:** `POST /api/webhooks/offline-session-termination`
 - **Authentication header:** `X-API-Key: <configured-api-key>`
@@ -92,7 +92,7 @@ IDM API exposes a webhook for revoking offline sessions using partner ID.
 
 ```bash
 curl -i \
-  -X POST "https://identity-qa.vaillant-group.com/api/webhooks/offline-session-termination" \
+  -X POST "https://identity[-qa].vaillant-group.com/api/webhooks/offline-session-termination" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: <OFFLINE_SESSION_TERMINATION_API_KEY>" \
   -d '{
