@@ -12,14 +12,12 @@ This document describes how partner authentication clients are configured in IDM
 
 ## Partner client configuration
 
-Partner-aware clients are configured by IDM team. Rollout of a new client or an update for an existing client must be requested via a [Helpdesk ticket](https://service.dsp.vaillant-group.com).
-
 ### Default partner client configuration
 
 - **Offline access**
   - Partner clients are by design configured to store [offline sessions](https://www.keycloak.org/docs/latest/server_admin/#_offline-access) for the users, allowing the clients to act on behalf of the end-users without their active participation.
 - **Partner mapping**
-  - Partner clients require `SALESFORCE_PARTNER_ID` attribute in order to be mapped to a specific partner account in Salesforce. Partner resolution assumes a 1:1 mapping between a partner and a client within a realm.
+  - Partner clients require partner Salesforce account ID in order to be mapped to a specific partner account in Salesforce. Partner resolution assumes a 1:1 mapping between a partner account in Salesforce and a client within a single realm.
 - **Scopes**
   - `user_homes`
   - `openid` (built-in `basic`)
@@ -27,29 +25,52 @@ Partner-aware clients are configured by IDM team. Rollout of a new client or an 
   - `email`
   - `offline_access` (for refresh token / offline sessions)
 - **PKCE**
-  - Public clients: PKCE (`S256`) is enforced automatically
-  - Confidential clients: can be configured to enforce PKCE
+  - Frontend (public) clients: PKCE (`S256`) is enforced automatically
+  - Backend (confidential) clients: PKCE (`S256`) is enabled by default, yet it can be disabled
 
+## Partner client rollout
 
-## Logout endpoint
+Partner-aware clients are configured by IDM team. Rollout of a new client or an update of an existing client must be requested via a [Helpdesk ticket](https://service.dsp.vaillant-group.com).
+
+In order to perform a partner client rollout, the following details are required:
+
+- **Client name**
+- **Partner Salesforce account ID**
+- **List of realms** - realms for which the new client should be enabled
+- **Environment** - QA/production
+- **Base site URL** - for each client and realm combination
+- **Redirect URIs** - for each client and realm combination
+- **Integration type** - Backend/Frontend (see [Backend vs Frontend Integration](developer-documentation.md#backend-vs-frontend-integration))
+
+## Common flows
+
+For a detailed overview of the standard IDM flows, see the [Common IDM Flows](common-idm-flows.md#login) documentation.
+
+### Login and device selection
+
+When a user initiates login with a partner client, the standard OIDC authorization flow is used. After successful authentication, the user is presented with a device selection screen.
+
+On this screen, the user can select which of their devices they wish to authorize for the partner application. Only the selected devices will be accessible to the partner client via offline session.
+
+### Logout
 
 For logout endpoint details, see the [Common IDM Flows](common-idm-flows.md#logout) documentation.
 
-Partner clients should ensure that logout flows are correctly implemented to trigger session and consent revocation as described below.
+Partner clients should ensure that logout flows are correctly implemented to trigger offline session and consent revocation as described below.
 
-### Logout for partner clients
+#### Logout for partner clients
 
-IDM has been extended to listen for the following types of events for partner clients:
+IDM is configured to listen for the following types of events for partner clients:
 
 - `LOGOUT` (online/browser session logout)
 - `REVOKE_GRANT` (offline refresh token revoked via token revocation endpoint)
 
 When triggered for a partner client, IDM:
 
-1. terminates matching offline sessions for the user in specific realm and for specific client
+1. terminates matching offline sessions for the user in a specific realm and for a specific partner client
 2. revokes IoT gateway consents for the user and specificied partner
 
-### Logout request example
+#### Logout request example
 
 ```bash
 curl -X GET "https://identity[-qa].vaillant-group.com/realms/<realm-name>/protocol/openid-connect/logout?id_token_hint=<id-token>&post_logout_redirect_uri=<post-logout-redirect-uri>"
@@ -57,7 +78,7 @@ curl -X GET "https://identity[-qa].vaillant-group.com/realms/<realm-name>/protoc
 
 The expected response code is 204 No Content, however one should bear in mind the endpoint is idempotent and always returns such code, regardless of whether the logout was actually successful or not.
 
-### Revoke grant request example
+#### Revoke grant request example
 
 ```bash
 curl -X POST "https://identity[-qa].vaillant-group.com/realms/<realm-name>/protocol/openid-connect/revoke" \
@@ -77,9 +98,9 @@ The expected response code is 200 OK with optional body - if token is revoked co
 }
 ```
 
-## Offline session termination webhook
+### Offline session termination webhook
 
-IDM API exposes a webhook for revoking offline sessions using partner ID for a speicifc user in given realm:
+IDM API exposes a webhook for revoking offline sessions using partner ID for a specific user in given realm:
 
 - **Path:** `POST /api/webhooks/offline-session-termination`
 - **Authentication header:** `X-API-Key: <configured-api-key>`
@@ -88,7 +109,7 @@ IDM API exposes a webhook for revoking offline sessions using partner ID for a s
   - `userId` (required)
   - `partnerId` (required)
 
-### Request example
+#### Request example
 
 ```bash
 curl -i \
@@ -102,7 +123,7 @@ curl -i \
   }'
 ```
 
-### Response behavior
+#### Response behavior
 
 - `204` - offline sessions terminated or already absent
 - `400` - invalid/missing request fields
