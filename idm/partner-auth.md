@@ -52,6 +52,11 @@ When a user initiates login with a partner client, the standard OIDC authorizati
 
 On this screen, the user can select which of their devices they wish to authorize for the partner application. Only the selected devices will be accessible to the partner client via offline session.
 
+> ##### WARNING
+>
+> Once device consent is granted for a specific device to the partner client, it remains valid until a logout is invoked by the user or the token is revoked by the partner.
+
+
 ### Logout
 
 For logout endpoint details, see the [Common IDM Flows](common-idm-flows.md) documentation.
