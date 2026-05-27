@@ -15,6 +15,7 @@ description: Overview
 * [API Documentation](api-documentation.html)
 * [NSC Documentation](nsc-documentation.md)
 * [Service to Service Auth Documentation](service-to-service-auth.md)
+* [Partner Authentication Documentation](partner-auth.md)
 * [User History Dashboard](user-history-dashboard.md)
 * [Security Admin Panel](security/security-panel-documentation.md)
 * [Keycloak Mapping](keycloak-mapping.md)
