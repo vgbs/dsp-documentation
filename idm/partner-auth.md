@@ -54,7 +54,7 @@ On this screen, the user can select which of their devices they wish to authoriz
 
 ### Logout
 
-For logout endpoint details, see the [Common IDM Flows](common-idm-flows.md#logout) documentation.
+For logout endpoint details, see the [Common IDM Flows](common-idm-flows.md) documentation.
 
 Partner clients should ensure that logout flows are correctly implemented to trigger offline session and consent revocation as described below.
 
