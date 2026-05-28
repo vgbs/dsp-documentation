@@ -38,6 +38,7 @@ In order to perform a partner client rollout, the following details are required
 - **Partner Salesforce account ID**
 - **List of realms** - realms for which the new client should be enabled
 - **Environment** - QA/production
+- **Audience** - what audience should be included in the access tokens issued for the client
 - **Base site URL** - for each client and realm combination
 - **Redirect URIs** - for each client and realm combination
 - **Integration type** - Backend/Frontend (see [Backend vs Frontend Integration](developer-documentation.md#backend-vs-frontend-integration))
