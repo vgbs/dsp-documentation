@@ -28,6 +28,38 @@ This document describes how partner authentication clients are configured in IDM
   - Frontend (public) clients: PKCE (`S256`) is enforced automatically
   - Backend (confidential) clients: PKCE (`S256`) is enabled by default, yet it can be disabled
 
+### Partner Auth Login Flow Translations
+
+IDM supports translations of our flows into multiple languages. To update a translation for a specific language, the responsible party should provide translated values for our keys in the spreadsheet.
+
+Afterward, please notify us, and we will update IDM using the provided translations.
+
+Access to the spreadsheet can be requested via a [Helpdesk ticket](https://service.dsp.vaillant-group.com).
+
+The following keys are used in the Partner Auth login flow:
+
+```
+deviceSelection
+deviceSelectionConsentStatement
+deviceSelectionErrorNone
+deviceSelectionNoDevices
+deviceSelectionTitle
+deviceSelectionDoContinue
+deviceSelectionDoCancel
+deviceSelectionScopesLabel
+deviceSelectionScope_user_homes
+deviceSelectionScope_offline_access
+deviceSelectionScope_profile
+deviceSelectionScope_email
+deviceSelectionScope_basic
+deviceSelectionScope_openid
+deviceSelectionPrivacyPolicyAgreementPrefix
+deviceSelectionPrivacyPolicyLinkText
+deviceSelectionPrivacyPolicyAgreementSuffix
+```
+
+For reference, the original English values can be found in the same spreadsheet in `original` column.
+
 ## Partner client rollout
 
 Partner-aware clients are configured by IDM team. Rollout of a new client or an update of an existing client must be requested via a [Helpdesk ticket](https://service.dsp.vaillant-group.com).
