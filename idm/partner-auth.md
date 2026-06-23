@@ -111,7 +111,7 @@ When triggered for a partner client, IDM:
 #### Logout request example
 
 ```bash
-curl -X GET "https://identity[-qa].vaillant-group.com/realms/<realm-name>/protocol/openid-connect/logout?id_token_hint=<id-token>&post_logout_redirect_uri=<post-logout-redirect-uri>"
+curl -X GET "https://identity[-qa].vaillant-group.com/auth/realms/<realm-name>/protocol/openid-connect/logout?id_token_hint=<id-token>&post_logout_redirect_uri=<post-logout-redirect-uri>"
 ```
 
 The expected response code is 204 No Content, however one should bear in mind the endpoint is idempotent and always returns such code, regardless of whether the logout was actually successful or not.
@@ -119,7 +119,7 @@ The expected response code is 204 No Content, however one should bear in mind th
 #### Revoke grant request example
 
 ```bash
-curl -X POST "https://identity[-qa].vaillant-group.com/realms/<realm-name>/protocol/openid-connect/revoke" \
+curl -X POST "https://identity[-qa].vaillant-group.com/auth/realms/<realm-name>/protocol/openid-connect/revoke" \
   -H "Content-Type: application/x-www-form-urlencoded" \
   -d "client_id=<client-id>" \
   -d "client_secret=<client-secret>" \
