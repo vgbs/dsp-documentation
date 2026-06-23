@@ -127,7 +127,7 @@ curl -X POST "https://identity[-qa].vaillant-group.com/auth/realms/<realm-name>/
   -d "token_type_hint=refresh_token"
 ```
 
-The expected response code is 200 OK with optional body - if token is revoked correctly, no content is provided in the response, yet if the refresh token provided in the request body is incorrect or already revoked, response body contains the following JSON content:
+The expected response code is 200 OK, which is returned idempotently, with optional body - if token is revoked correctly, no content is provided in the response, yet if the refresh token provided in the request body is incorrect or already revoked, response body contains the following JSON content:
 
 ```json
 {
