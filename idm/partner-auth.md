@@ -8,7 +8,7 @@ description: Partner Authentication
 
 ## Partner authentication
 
-This document describes how partner authentication clients are configured in IDM, how are partner sessions handled, how logout should be called, and how to invoke the offline session termination webhook.
+This document describes how partner authentication clients are configured in IDM, how are partner sessions handled, how to revoke consent using token revoke endpoint, and how to invoke the offline session termination webhook.
 
 ## Partner client configuration
 
@@ -87,36 +87,23 @@ On this screen, the user can select which of their devices they wish to authoriz
 
 > ##### WARNING
 >
-> Once device consent is granted for a specific device to the partner client, it remains valid until a logout is invoked by the user or the token is revoked by the partner.
+> Once device consent is granted for a specific device to the partner client, it remains valid until a token revocation is invoked by the user or the token is revoked by the partner using webhook.
 
 
-### Logout
+### Offline session termination and consent removal
 
-For logout endpoint details, see the [Common IDM Flows](common-idm-flows.md) documentation.
+Partner clients should ensure that revocation flows are correctly implemented to trigger offline session and consent revocation as described below.
 
-Partner clients should ensure that logout flows are correctly implemented to trigger offline session and consent revocation as described below.
+IDM is configured to listen for the following type of event for partner clients:
 
-#### Logout for partner clients
-
-IDM is configured to listen for the following types of events for partner clients:
-
-- `LOGOUT` (online/browser session logout)
-- `REVOKE_GRANT` (offline refresh token revoked via token revocation endpoint)
+- `REVOKE_GRANT` (created on request to token revocation endpoint)
 
 When triggered for a partner client, IDM:
 
 1. terminates matching offline sessions for the user in a specific realm and for a specific partner client
 2. revokes IoT gateway consents for the user and specificied partner
 
-#### Logout request example
-
-```bash
-curl -X GET "https://identity[-qa].vaillant-group.com/auth/realms/<realm-name>/protocol/openid-connect/logout?id_token_hint=<id-token>&post_logout_redirect_uri=<post-logout-redirect-uri>"
-```
-
-The expected response code is 204 No Content, however one should bear in mind the endpoint is idempotent and always returns such code, regardless of whether the logout was actually successful or not.
-
-#### Revoke grant request example
+#### Revoke token request example
 
 ```bash
 curl -X POST "https://identity[-qa].vaillant-group.com/auth/realms/<realm-name>/protocol/openid-connect/revoke" \
