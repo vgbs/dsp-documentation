@@ -1,9 +1,16 @@
-# Requesting a Login Page Banner
+---
+title: Identity Management Help
+description: IDM Login Page Banner
+---
+
+[&larr; back to Overview](/idm)
+
+## Requesting a Login Page Banner
 
 We can display an informational banner on the Keycloak login page (e.g., for planned maintenance or service
-disruptions). To request one, please provide the following information.
+disruptions). To request one, please create a support ticket [here](https://jira.vaillant-group.com/plugins/servlet/desk/portal/37/create/741) and provide the following information.
 
-## 1. Realm(s)
+### 1. Realm(s)
 
 A realm is identified by **brand + country + B2B or B2C**. Tell us:
 
@@ -15,7 +22,7 @@ A realm is identified by **brand + country + B2B or B2C**. Tell us:
 
 If you're not sure which realm your portal maps to, just give us the login page URL and we'll match it.
 
-## 2. Message text
+### 2. Message text
 
 Provide the exact wording you want shown, **in the local language**. Optionally, you could also provide us an **English translation** so we can
 verify meaning and formatting before publishing.
@@ -34,26 +41,26 @@ verify meaning and formatting before publishing.
 > result, some online services will be temporarily unavailable.
 > More information is available on our dedicated status page.
 
-## 3. Maintenance window
+### 3. Maintenance window
 
 - **Start date** of the maintenance/disruption
 - **End date** of the maintenance/disruption
 
-## 4. When the banner should go live
+### 4. When the banner should go live
 
 - **Publish date** - when the banner should start showing (this is often *before* the maintenance window itself,
   to give users notice)
 - **Take-down date** - when the banner should be removed (often the same as the maintenance end date, but let us
   know if different)
 
-## 5. Links
+### 5. Links
 
 If the message should include a link (e.g., to a status page), provide:
 
 - The **exact URL**
 - The **exact word(s) or phrase** the link should be applied to (e.g. "informatiepagina")
 
-## 6. Styling
+### 6. Styling
 
 Tell us simply whether any part of the text needs to be:
 
