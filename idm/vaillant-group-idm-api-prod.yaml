@@ -390,6 +390,7 @@ paths:
         in: path
         required: true
         schema:
+          pattern: "^[A-Za-z]{2}$"
           type: string
       - name: brand
         in: path
@@ -447,6 +448,7 @@ paths:
         in: path
         required: true
         schema:
+          pattern: "^[A-Za-z]{2}$"
           type: string
       - name: brand
         in: path
@@ -491,6 +493,7 @@ paths:
         in: path
         required: true
         schema:
+          pattern: "^[A-Za-z]{2}$"
           type: string
       - name: brand
         in: path
@@ -537,6 +540,7 @@ paths:
         in: path
         required: true
         schema:
+          pattern: "^[A-Za-z]{2}$"
           type: string
       - name: brand
         in: path
