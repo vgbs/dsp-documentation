@@ -89,6 +89,20 @@ On this screen, the user can select which of their devices they wish to authoriz
 >
 > Once device consent is granted for a specific device to the partner client, it remains valid until a token revocation is invoked by the user or the token is revoked by the partner using webhook.
 
+> ##### NOTE
+>
+> Unlike refresh, if the IoT Gateway is unavailable *during initial login*, authentication fails outright, and the session is never created — there is no retryable "unavailable" state to recover from. A user with genuinely zero devices, however, is not an error and login proceeds normally.
+
+### Refresh token behavior during IoT Gateway unavailability
+
+On each `refresh_token` grant, IDM calls the IoT Gateway to refresh the set of authorized systems included in the access token. If the IoT Gateway is unavailable or returns an error at that moment, IDM will:
+
+- Return HTTP `503` with body `{"error": "temporarily_unavailable", "error_description": "..."}` and a `Retry-After` header (seconds).
+- **Not consume the presented refresh token** — it remains valid and can be reused for a subsequent refresh attempt.
+
+> ##### RECOMMENDATION
+>
+> Partner clients should treat `503 temporarily_unavailable` on the token endpoint as retryable: back off per `Retry-After` and retry using the same refresh token, rather than treating it as an authentication failure or discarding the token.
 
 ### Offline session termination and consent removal
 
@@ -101,7 +115,7 @@ IDM is configured to listen for the following type of event for partner clients:
 When triggered for a partner client, IDM:
 
 1. terminates matching offline sessions for the user in a specific realm and for a specific partner client
-2. revokes IoT gateway consents for the user and specificied partner
+2. revokes IoT gateway consents for the user and specified partner
 
 #### Revoke token request example
 
